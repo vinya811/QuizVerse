@@ -1,23 +1,66 @@
+const profile = document.getElementById("profile");
+
+const profileMenu = document.getElementById("profile-menu");
+
+const settingsButton = document.getElementById("settings-btn");
+
+const logoutButton = document.getElementById("logout-btn");
+
+// OPEN PROFILE MENU
+
+profile.addEventListener("click", function () {
+
+    profileMenu.classList.toggle("show");
+
+});
+
+
+// SETTINGS
+
+settingsButton.addEventListener("click", function (event) {
+
+    event.stopPropagation();
+
+    window.location.href = "settings.html";
+
+});
+
+
+// LOGOUT
+
+logoutButton.addEventListener("click", function (event) {
+
+    event.stopPropagation();
+
+    localStorage.removeItem("username");
+
+    window.location.href = "index2.html";
+
+});
+
 const username = document.getElementById("username");
 
 const quizCount = document.getElementById("quiz-count");
 
 const quizList = document.getElementById("quiz-list");
 
+// APPLY DARK MODE
 
-// GET USER
+if (localStorage.getItem("darkMode") === "true") {
 
-const savedUser = localStorage.getItem("quizVerseUser");
-
-
-if (savedUser !== null) {
-
-    const user = JSON.parse(savedUser);
-
-    username.textContent = user.username;
+    document.body.classList.add("dark-mode");
 
 }
 
+// GET USER
+
+const savedUsername = localStorage.getItem("username");
+
+if (savedUsername !== null) {
+
+    username.textContent = savedUsername;
+
+}
 
 // QUIZ DATA
 
