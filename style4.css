@@ -227,3 +227,123 @@ main {
     cursor: pointer;
 
 }
+/* PROFILE MENU */
+
+.profile {
+
+    position: relative;
+
+    cursor: pointer;
+
+}
+
+
+.profile-menu {
+
+    display: none;
+
+    position: absolute;
+
+    top: 45px;
+
+    right: 0;
+
+    background: white;
+
+    width: 150px;
+
+    padding: 10px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+
+    z-index: 10;
+
+}
+
+
+.profile-menu button {
+
+    display: block;
+
+    width: 100%;
+
+    padding: 10px;
+
+    margin: 5px 0;
+
+    border: none;
+
+    background: transparent;
+
+    text-align: left;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+}
+
+
+.profile-menu button:hover {
+
+    background: #f0f0f0;
+
+}
+
+
+.profile-menu.show {
+
+    display: block;
+
+}
+
+/* DARK MODE */
+
+body.dark-mode {
+
+    background: #121212;
+
+    color: white;
+
+}
+
+
+body.dark-mode header {
+
+    background: #1e1e1e;
+
+}
+
+
+body.dark-mode .hero {
+
+    background: #1e1e1e;
+
+}
+
+
+body.dark-mode .quiz-section {
+
+    background: #1e1e1e;
+
+}
+
+
+body.dark-mode .quiz-card {
+
+    background: #2a2a2a;
+
+    color: white;
+
+}
+
+
+body.dark-mode p {
+
+    color: #cccccc;
+
+}

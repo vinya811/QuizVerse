@@ -20,8 +20,7 @@ signupLink.addEventListener("click", function () {
 
 // LOGIN BUTTON
 
-loginButton.addEventListener("click", function () {
-
+loginButton.addEventListener("click", async function () {
 
     if (loginEmail.value.trim() === "") {
 
@@ -43,33 +42,54 @@ loginButton.addEventListener("click", function () {
     }
 
 
-    // GET SAVED USER
+    try {
 
-    const savedUser = localStorage.getItem("quizVerseUser");
+        const response = await fetch(
+
+            "http://localhost:5000/api/login",
+
+            {
+
+                method: "POST",
+
+                headers: {
+
+                    "Content-Type": "application/json"
+
+                },
+
+                body: JSON.stringify({
+
+                    email: loginEmail.value,
+
+                    password: loginPassword.value
+
+                })
+
+            }
+
+        );
 
 
-    if (savedUser === null) {
-
-        loginError.textContent =
-            "⚠️ No account found. Please sign up first.";
-
-        return;
-
-    }
+        const data = await response.json();
 
 
-    const user = JSON.parse(savedUser);
+        if (!response.ok) {
+
+            loginError.style.color = "red";
+
+            loginError.textContent =
+                "❌ " + data.message;
+
+            return;
+
+        }
 
 
-    // CHECK LOGIN
+        // SAVE USERNAME
 
-    if (
-
-        loginEmail.value === user.email &&
-
-        loginPassword.value === user.password
-
-    ) {
+        localStorage.setItem("username", data.username);
+        localStorage.setItem("email", loginEmail.value);
 
 
         loginError.style.color = "green";
@@ -85,14 +105,16 @@ loginButton.addEventListener("click", function () {
         }, 1000);
 
 
-    } else {
-
+    } catch (error) {
 
         loginError.style.color = "red";
 
         loginError.textContent =
-            "❌ Incorrect email or password";
 
+            "❌ Cannot connect to server";
+
+
+        console.log(error);
 
     }
 

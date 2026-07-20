@@ -26,7 +26,7 @@ backButton.addEventListener("click", function () {
 
 // REGISTER BUTTON
 
-registerButton.addEventListener("click", function () {
+registerButton.addEventListener("click", async function () {
 
 
     if (email.value.trim() === "") {
@@ -79,46 +79,81 @@ registerButton.addEventListener("click", function () {
     }
 
 
-    // USER OBJECT
-
-    const user = {
-
-        email: email.value,
-
-        username: username.value,
-
-        password: password.value,
-
-        phone: phone.value,
-
-        dob: dob.value
-
-    };
+    try {
 
 
-    // SAVE USER
+        const response = await fetch(
 
-    localStorage.setItem(
+            "http://localhost:5000/api/register",
 
-        "quizVerseUser",
+            {
 
-        JSON.stringify(user)
+                method: "POST",
 
-    );
+                headers: {
+
+                    "Content-Type": "application/json"
+
+                },
+
+                body: JSON.stringify({
+
+                    email: email.value,
+
+                    username: username.value,
+
+                    password: password.value,
+
+                    phone: phone.value,
+
+                    dob: dob.value
+
+                })
+
+            }
+
+        );
 
 
-    errorMessage.style.color = "green";
-
-    errorMessage.textContent =
-
-        "✅ Registration successful!";
+        const data = await response.json();
 
 
-    setTimeout(function () {
+        if (!response.ok) {
 
-        window.location.href = "index2.html";
+            errorMessage.textContent =
+                "❌ " + data.message;
 
-    }, 1000);
+            return;
 
+        }
+
+
+        errorMessage.style.color = "green";
+
+        errorMessage.textContent =
+            "✅ Registration successful!";
+
+
+        setTimeout(function () {
+
+            window.location.href = "index2.html";
+
+        }, 1000);
+
+
+    } catch (error) {
+
+
+        errorMessage.style.color = "red";
+
+        errorMessage.textContent =
+
+            "❌ Cannot connect to server";
+
+
+        console.log(error);
+
+
+    }
 
 });
