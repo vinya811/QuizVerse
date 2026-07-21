@@ -10,6 +10,9 @@ const backButton =
 const saveButton =
     document.getElementById("save-btn");
 
+const deleteButton =
+    document.getElementById("delete-btn");
+
 const message =
     document.getElementById("message");
 
@@ -28,16 +31,14 @@ async function loadUserProfile() {
     try {
 
         const response = await fetch(
-
             `http://localhost:5000/api/user/${email}`
-
         );
-
 
         const data = await response.json();
 
-
         if (!response.ok) {
+
+            message.style.color = "red";
 
             message.textContent =
                 "❌ " + data.message;
@@ -46,34 +47,29 @@ async function loadUserProfile() {
 
         }
 
+        usernameInput.value = data.username;
 
-        usernameInput.value =
-            data.username;
-
-        phoneInput.value =
-            data.phone;
-
+        phoneInput.value = data.phone;
 
         localStorage.setItem(
-
             "username",
-
             data.username
-
         );
-
-
-    } catch (error) {
-
-        console.log(error);
-
-        message.textContent =
-            "❌ Cannot load profile";
 
     }
 
+    catch (error) {
+
+    console.error("DELETE ERROR:", error);
+
+    message.style.color = "red";
+
+    message.textContent =
+        "❌ " + error.message;
+
 }
 
+}
 
 loadUserProfile();
 
@@ -96,25 +92,27 @@ themeButton.addEventListener("click", function () {
 
     document.body.classList.toggle("dark-mode");
 
-
     const darkMode =
         document.body.classList.contains("dark-mode");
 
-
     localStorage.setItem(
-
         "darkMode",
-
         darkMode
-
     );
 
+    if (darkMode) {
 
-    themeButton.textContent = darkMode
+        themeButton.textContent =
+            "☀️ Light Mode";
 
-        ? "☀️ Light Mode"
+    }
 
-        : "🌙 Dark Mode";
+    else {
+
+        themeButton.textContent =
+            "🌙 Dark Mode";
+
+    }
 
 });
 
@@ -129,7 +127,6 @@ saveButton.addEventListener("click", async function () {
     const newPhone =
         phoneInput.value.trim();
 
-
     if (newUsername === "") {
 
         message.style.color = "red";
@@ -141,7 +138,6 @@ saveButton.addEventListener("click", async function () {
 
     }
 
-
     if (newPhone === "") {
 
         message.style.color = "red";
@@ -152,7 +148,6 @@ saveButton.addEventListener("click", async function () {
         return;
 
     }
-
 
     try {
 
@@ -184,10 +179,8 @@ saveButton.addEventListener("click", async function () {
 
         );
 
-
         const data =
             await response.json();
-
 
         if (!response.ok) {
 
@@ -200,37 +193,110 @@ saveButton.addEventListener("click", async function () {
 
         }
 
-
         localStorage.setItem(
-
             "username",
-
             data.username
-
         );
-
 
         message.style.color = "green";
 
         message.textContent =
             "✅ Profile updated successfully";
 
+    }
 
-    } catch (error) {
+    catch (error) {
+
+        console.log(error);
 
         message.style.color = "red";
 
         message.textContent =
             "❌ Cannot connect to server";
 
+    }
+
+});
+
+
+// DELETE ACCOUNT
+
+deleteButton.addEventListener("click", async function () {
+
+    const confirmDelete = confirm(
+        "Are you sure you want to permanently delete your account?"
+    );
+
+    if (!confirmDelete) {
+
+        return;
+
+    }
+
+    try {
+
+        const response = await fetch(
+
+            "http://localhost:5000/api/user/delete",
+
+            {
+
+                method: "DELETE",
+
+                headers: {
+
+                    "Content-Type": "application/json"
+
+                },
+
+                body: JSON.stringify({
+
+                    email: email
+
+                })
+
+            }
+
+        );
+
+        const data =
+            await response.json();
+
+        if (!response.ok) {
+
+            message.style.color = "red";
+
+            message.textContent =
+                "❌ " + data.message;
+
+            return;
+
+        }
+
+        localStorage.clear();
+
+        alert("✅ Account deleted successfully");
+
+        window.location.href =
+            "index2.html";
+
+    }
+
+    catch (error) {
+
         console.log(error);
+
+        message.style.color = "red";
+
+        message.textContent =
+            "❌ Cannot connect to server";
 
     }
 
 });
 
 
-// BACK TO DASHBOARD
+// BACK BUTTON
 
 backButton.addEventListener("click", function () {
 

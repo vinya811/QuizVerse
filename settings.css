@@ -216,3 +216,33 @@ body.dark-mode #theme-btn {
     background: #dddddd;
 
 }
+
+.delete-btn {
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 20px;
+
+    background: #dc3545;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+.delete-btn:hover {
+
+    background: #b02a37;
+
+}
