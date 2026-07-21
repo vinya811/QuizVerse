@@ -1,3 +1,5 @@
+console.log("SERVER FILE LOADED");
+
 const dns = require("dns");
 
 dns.setServers(["8.8.8.8"]);
@@ -346,6 +348,49 @@ app.put("/api/user/update", async (req, res) => {
 
 });
 
+console.log("REGISTERING DELETE ROUTE");
+
+// DELETE USER ACCOUNT
+
+app.delete("/api/user/delete", async (req, res) => {
+
+    try {
+
+        console.log("DELETE BODY:", req.body);
+
+        const { email } = req.body;
+
+        const user = await User.findOne({ email });
+
+        console.log("FOUND USER:", user);
+
+        if (!user) {
+            return res.status(404).json({
+                message: "User not found"
+            });
+        }
+
+        await User.deleteOne({ email });
+
+        res.json({
+            message: "Account deleted successfully"
+        });
+
+    } catch (error) {
+
+        console.log(error);
+
+        res.status(500).json({
+            message: "Server error"
+        });
+
+    }
+
+});
+
+//app.get("/hello", (req, res) => {
+    //res.send("Hello");
+//});
 
 // START SERVER
 
