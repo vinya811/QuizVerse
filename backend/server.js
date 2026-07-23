@@ -28,6 +28,8 @@ app.use(cors());
 
 app.use(express.json());
 
+console.log("MONGO_URI =", process.env.MONGO_URI);
+
 
 // MONGODB CONNECTION
 
@@ -146,16 +148,17 @@ app.post("/api/register", async (req, res) => {
 
     } catch (error) {
 
-        console.log(error);
+    console.log("REGISTER ERROR:");
+    console.log(error);
+    console.log(error.stack);
 
+    res.status(500).json({
 
-        res.status(500).json({
+        message: error.message
 
-            message: "Server error"
+    });
 
-        });
-
-    }
+}
 
 });
 
@@ -166,62 +169,37 @@ app.post("/api/login", async (req, res) => {
 
     try {
 
-        const {
+        console.log("LOGIN BODY:", req.body);
 
-            email,
+        const { email, password } = req.body;
 
-            password
+        const user = await User.findOne({ email });
 
-        } = req.body;
-
-
-        const user = await User.findOne({
-
-            email: email
-
-        });
-
+        console.log("FOUND USER:", user);
 
         if (!user) {
-
             return res.status(404).json({
-
                 message: "No account found"
-
             });
-
         }
-
 
         if (user.password !== password) {
-
             return res.status(401).json({
-
                 message: "Incorrect password"
-
             });
-
         }
 
-
         res.status(200).json({
-
             message: "Login successful",
-
             username: user.username
-
         });
-
 
     } catch (error) {
 
-        console.log(error);
-
+        console.log("LOGIN ERROR:", error);
 
         res.status(500).json({
-
             message: "Server error"
-
         });
 
     }
