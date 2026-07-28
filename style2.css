@@ -34,30 +34,19 @@ body {
 }
 
 
-.login-card {
+.login-card{
+    width:90%;
+    max-width:400px;
 
-    width: 400px;
+    padding:40px;
 
-    padding: 40px;
+    background:white;
 
-    background: white;
+    border-radius:25px;
 
-    border-radius: 25px;
+    text-align:center;
 
-    text-align: center;
-
-    box-shadow: 0 10px 40px rgba(
-
-        0,
-
-        0,
-
-        0,
-
-        0.1
-
-    );
-
+    box-shadow:0 10px 40px rgba(0,0,0,.1);
 }
 
 
@@ -134,21 +123,80 @@ body {
 }
 
 
-.signup-text span {
+.signup-text span{
 
-    color: #6758f5;
+    color:#6758f5;
 
-    font-weight: bold;
+    font-weight:bold;
 
-    cursor: pointer;
+    cursor:pointer;
 
+    transition:.3s;
 }
-#login-error {
 
-    color: #e63946;
+.signup-text span:hover{
 
-    font-size: 14px;
+    text-decoration:underline;
+}
+#login-error{
 
-    margin-bottom: 15px;
+    min-height:20px;
+
+    color:#e63946;
+
+    font-size:14px;
+
+    margin-bottom:15px;
+}
+.login-btn{
+
+    transition:.3s;
+}
+
+.login-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 20px rgba(83,109,254,.3);
+}
+.login-card input:focus{
+
+    outline:none;
+
+    border-color:#6758f5;
+
+    box-shadow:0 0 8px rgba(103,88,245,.25);
+}
+.login-btn,
+.login-card input{
+
+    transition:.3s;
+}
+@media (max-width:480px){
+
+    .login-card{
+
+        padding:30px 20px;
+    }
+
+    .login-card h1{
+
+        font-size:28px;
+    }
+
+    .login-card p{
+
+        font-size:15px;
+    }
+
+    .login-card input{
+
+        padding:13px;
+    }
+
+    .login-btn{
+
+        padding:14px;
+    }
 
 }
