@@ -24,7 +24,7 @@ body {
 
 header {
 
-    height: 80px;
+    min-height:80px;
 
     padding: 0 60px;
 
@@ -210,21 +210,16 @@ main {
 }
 
 
-.quiz-card button {
+.quiz-card button{
 
-    width: 100%;
+    transition:.3s;
+}
 
-    padding: 12px;
+.quiz-card button:hover{
 
-    border: none;
+    background:#536dfe;
 
-    border-radius: 8px;
-
-    background: #6758f5;
-
-    color: white;
-
-    cursor: pointer;
+    transform:translateY(-2px);
 
 }
 /* PROFILE MENU */
@@ -340,10 +335,41 @@ body.dark-mode .quiz-card {
     color: white;
 
 }
+body.dark-mode .profile-menu{
 
+    background:#2a2a2a;
+}
+body.dark-mode .profile-menu button{
 
+    color:white;
+}
 body.dark-mode p {
 
     color: #cccccc;
+
+}
+@media (max-width:768px){
+
+    header{
+
+        padding:20px;
+    }
+
+    .hero{
+
+        padding:30px;
+    }
+
+    .hero h1{
+
+        font-size:34px;
+    }
+
+    .section-heading{
+
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
 
 }

@@ -1,248 +1,333 @@
+/* ==========================
+   GLOBAL
+========================== */
+
 * {
-
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-
 }
-
 
 body {
-
-    margin: 0;
-
     font-family: Arial, sans-serif;
-
     background: #f5f7fb;
-
     color: #222;
-
-    transition: 0.3s;
-
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
+/* ==========================
+   CONTAINER
+========================== */
 
 .settings-container {
-
     width: 90%;
-
     max-width: 600px;
-
     margin: 50px auto;
-
 }
 
+/* ==========================
+   BACK BUTTON
+========================== */
 
 #back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 30px;
+    padding: 10px 18px;
 
     border: none;
+    border-radius: 10px;
 
-    background: none;
+    background: white;
+    color: #222;
 
-    font-size: 16px;
+    font-size: 15px;
+    font-weight: 600;
 
     cursor: pointer;
 
-    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.08);
 
-    color: #222;
-
+    transition: all .3s ease;
 }
 
+#back-btn:hover {
+    background: #6758f5;
+    color: white;
+    transform: translateX(-4px);
+}
+
+/* ==========================
+   HEADING
+========================== */
 
 h1 {
-
     margin-bottom: 30px;
-
+    font-size: 34px;
+    color: #6758f5;
 }
 
+/* ==========================
+   SETTING CARDS
+========================== */
 
 .setting-box {
-
     background: white;
 
-    padding: 20px;
+    padding: 22px;
 
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 
-    border-radius: 15px;
+    border-radius: 16px;
 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 6px 18px rgba(0,0,0,.08);
 
+    transition: all .3s ease;
 }
 
+.setting-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0,0,0,.12);
+}
 
 .setting-box h3 {
-
-    margin-top: 0;
-
+    margin-bottom: 12px;
+    color: #333;
 }
 
+/* ==========================
+   INPUTS
+========================== */
 
 .setting-box input {
-
     width: 100%;
 
-    padding: 12px;
+    padding: 13px 15px;
 
     border: 1px solid #ddd;
 
-    border-radius: 8px;
-
-    font-size: 16px;
-
-}
-
-
-#theme-btn {
-
-    padding: 10px 15px;
-
-    border: none;
-
-    border-radius: 8px;
-
-    cursor: pointer;
-
-    background: #eeeeee;
+    border-radius: 10px;
 
     font-size: 15px;
 
+    transition: .3s;
 }
 
+.setting-box input:focus {
+    outline: none;
+    border-color: #6758f5;
+    box-shadow: 0 0 8px rgba(103,88,245,.25);
+}
 
-#save-btn {
+/* ==========================
+   THEME BUTTON
+========================== */
 
-    width: 100%;
-
-    padding: 14px;
+#theme-btn {
+    padding: 12px 18px;
 
     border: none;
 
     border-radius: 10px;
 
-    background: #6c63ff;
+    background: #eeeeee;
 
-    color: white;
-
-    font-size: 16px;
+    font-size: 15px;
 
     cursor: pointer;
 
+    transition: .3s;
 }
 
-
-#save-btn:hover {
-
-    opacity: 0.9;
-
+#theme-btn:hover {
+    background: #dddddd;
 }
 
+/* ==========================
+   SAVE BUTTON
+========================== */
 
-#message {
+#save-btn {
+    width: 100%;
 
-    text-align: center;
-
-    margin-top: 15px;
-
-}
-
-
-/* DARK MODE */
-
-body.dark-mode {
-
-    background: #121212;
-
-    color: white;
-
-}
-
-
-body.dark-mode .setting-box {
-
-    background: #1f1f1f;
-
-    color: white;
-
-}
-
-
-body.dark-mode #back-btn {
-
-    color: white;
-
-}
-
-
-body.dark-mode .setting-box input {
-
-    background: #333;
-
-    color: white;
-
-    border: 1px solid #555;
-
-}
-
-
-body.dark-mode #theme-btn {
-
-    background: #333;
-
-    color: white;
-
-}
-
-.back-btn {
-
-    margin: 20px;
-
-    padding: 10px 18px;
+    padding: 15px;
 
     border: none;
 
-    border-radius: 8px;
+    border-radius: 12px;
 
-    background: #eeeeee;
+    background: linear-gradient(
+        135deg,
+        #536dfe,
+        #6758f5
+    );
+
+    color: white;
 
     font-size: 16px;
 
+    font-weight: bold;
+
     cursor: pointer;
 
+    transition: all .3s ease;
 }
 
+#save-btn:hover {
+    transform: translateY(-2px);
 
-.back-btn:hover {
-
-    background: #dddddd;
-
+    box-shadow: 0 10px 20px rgba(103,88,245,.35);
 }
+
+#save-btn:disabled {
+    opacity: .7;
+    cursor: not-allowed;
+}
+
+/* ==========================
+   DELETE BUTTON
+========================== */
 
 .delete-btn {
-
     width: 100%;
 
-    padding: 12px;
+    margin-top: 18px;
 
-    margin-top: 20px;
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
 
     background: #dc3545;
 
     color: white;
 
-    border: none;
-
-    border-radius: 8px;
-
     font-size: 16px;
+
+    font-weight: bold;
 
     cursor: pointer;
 
-    transition: 0.3s;
-
+    transition: all .3s ease;
 }
 
 .delete-btn:hover {
-
     background: #b02a37;
+    transform: translateY(-2px);
+}
 
+.delete-btn:disabled {
+    opacity: .7;
+    cursor: not-allowed;
+}
+
+/* ==========================
+   MESSAGE
+========================== */
+
+#message {
+    min-height: 24px;
+
+    margin-top: 18px;
+
+    text-align: center;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+/* ==========================
+   DARK MODE
+========================== */
+
+body.dark-mode {
+    background: #121212;
+    color: white;
+}
+
+body.dark-mode h1 {
+    color: #8b7cf6;
+}
+
+body.dark-mode #back-btn {
+    background: #1f1f1f;
+    color: white;
+}
+
+body.dark-mode #back-btn:hover {
+    background: #6758f5;
+}
+
+body.dark-mode .setting-box {
+    background: #1f1f1f;
+    color: white;
+}
+
+body.dark-mode .setting-box h3 {
+    color: white;
+}
+
+body.dark-mode .setting-box input {
+    background: #333;
+    color: white;
+    border: 1px solid #555;
+}
+
+body.dark-mode .setting-box input::placeholder {
+    color: #bbbbbb;
+}
+
+body.dark-mode #theme-btn {
+    background: #333;
+    color: white;
+}
+
+body.dark-mode #theme-btn:hover {
+    background: #444;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 768px) {
+
+    .settings-container {
+        width: 92%;
+        margin: 35px auto;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .setting-box {
+        padding: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .setting-box {
+        padding: 16px;
+    }
+
+    #save-btn,
+    .delete-btn,
+    #theme-btn {
+        font-size: 15px;
+    }
+
+    #back-btn {
+        font-size: 14px;
+        padding: 8px 14px;
+    }
 }

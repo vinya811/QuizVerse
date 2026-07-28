@@ -21,15 +21,7 @@ body {
 
     justify-content: center;
 
-    background: linear-gradient(
-
-        135deg,
-
-        #f7f6ff,
-
-        #eef2ff
-
-    );
+    background: white;
 
 }
 
@@ -63,20 +55,30 @@ body {
 
 .back-btn {
 
-    display: block;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 
     padding: 8px 14px;
 
-    background-color: transparent;
+    background: transparent;
 
     color: #6758f5;
 
     font-size: 15px;
+    font-weight: 600;
 
     border: none;
 
     cursor: pointer;
 
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+
+    color: #536dfe;
+    transform: translateX(-3px);
 }
 
 
@@ -163,8 +165,68 @@ body {
 }
 
 
+.register-btn {
+
+    transition: .3s;
+}
+
 .register-btn:hover {
 
-    opacity: 0.9;
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 20px rgba(83,109,254,.3);
+}
+.signup-card input:focus {
+
+    outline: none;
+
+    border-color: #6758f5;
+
+    box-shadow: 0 0 8px rgba(103,88,245,.25);
+}
+#error-message {
+
+    min-height: 22px;
+
+    margin-bottom: 12px;
+
+    font-size: 14px;
+
+    color: #e63946;
+
+    text-align: center;
+}
+@media (max-width: 480px) {
+
+    .signup-card {
+
+        width: 92%;
+        padding: 28px 20px;
+    }
+
+    .signup-card h1 {
+
+        font-size: 28px;
+    }
+
+    .signup-card p {
+
+        font-size: 15px;
+    }
+
+    .signup-card input {
+
+        padding: 13px;
+    }
+
+    .register-btn {
+
+        padding: 14px;
+    }
+
+    .back-btn {
+
+        font-size: 14px;
+    }
 
 }

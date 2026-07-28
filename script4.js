@@ -72,10 +72,11 @@ const quizzes = [
 
         description: "Test your JavaScript knowledge",
 
-        rating: "⭐ 4.5"
+        rating: "⭐ 4.5",
+
+        subject: "javascript"
 
     },
-
 
     {
 
@@ -83,10 +84,11 @@ const quizzes = [
 
         description: "Challenge your general knowledge",
 
-        rating: "⭐ 4.2"
+        rating: "⭐ 4.2",
+
+        subject: "gk"
 
     },
-
 
     {
 
@@ -94,7 +96,9 @@ const quizzes = [
 
         description: "Explore the world of science",
 
-        rating: "⭐ 4.7"
+        rating: "⭐ 4.7",
+
+        subject: "science"
 
     }
 
@@ -118,21 +122,30 @@ quizzes.forEach(function (quiz) {
 
     quizCard.innerHTML = `
 
-        <h3>${quiz.title}</h3>
+<h3>${quiz.title}</h3>
 
-        <p>${quiz.description}</p>
+<p>${quiz.description}</p>
 
-        <p>${quiz.rating}</p>
+<p>${quiz.rating}</p>
 
-        <button>
+<button class="start-btn">
 
-            Start Quiz
+Choose Level
 
-        </button>
+</button>
 
-    `;
+`;
 
 
     quizList.appendChild(quizCard);
+
+    const button = quizCard.querySelector(".start-btn");
+
+button.addEventListener("click", function () {
+
+    window.location.href =
+        `levels.html?subject=${quiz.subject}`;
+
+});
 
 });
