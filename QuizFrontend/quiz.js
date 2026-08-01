@@ -1,15 +1,115 @@
+// ==============================
+// LEVEL SETTINGS
+// ==============================
+
+const subject = localStorage.getItem("subject");
+const level = localStorage.getItem("level") || "easy";
+
+const quizSettings = {
+    easy: {
+        subject: "Easy Quiz",
+        difficulty: "Easy Level",
+        questions: 20,
+        minutes: 15,
+        points: "+5"
+    },
+    medium: {
+        subject: "Medium Quiz",
+        difficulty: "Medium Level",
+        questions: 20,
+        minutes: 20,
+        points: "+10"
+    },
+    hard: {
+        subject: "Hard Quiz",
+        difficulty: "Hard Level",
+        questions: 20,
+        minutes: 25,
+        points: "+15"
+    }
+};
+
+const currentQuiz = quizSettings[level];
+
+// ==============================
+// DISPLAY QUIZ DETAILS
+// ==============================
+
+document.getElementById("subject").textContent =
+    currentQuiz.subject;
+
+document.getElementById("difficulty").textContent =
+    currentQuiz.difficulty;
+
+document.getElementById("totalQuestions").textContent =
+    currentQuiz.questions;
+
+document.getElementById("timeLimit").textContent =
+    currentQuiz.minutes + " Min";
+
+document.getElementById("points").textContent =
+    currentQuiz.points;
+
+// ==============================
+// TIMER
+// ==============================
+
+let timeLeft = currentQuiz.minutes * 60;
+
+const timer = document.getElementById("timer");
+
+function updateTimer() {
+
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+
+    timer.textContent =
+        `${minutes}:${seconds.toString().padStart(2, "0")}`;
+
+    if (timeLeft <= 0) {
+
+        clearInterval(countdown);
+
+        alert("⏰ Time is up!");
+
+        return;
+    }
+
+    timeLeft--;
+
+}
+
+updateTimer();
+
+const countdown = setInterval(updateTimer, 1000);
+
+// ==============================
+// QUIZ LOGIC
+// ==============================
+
 let currentQuestion = 0;
 let selectedAnswers = [];
 
-const questionNumber = document.getElementById("questionNumber");
-const questionText = document.getElementById("questionText");
-const options = document.getElementById("options");
+const questionNumber =
+    document.getElementById("questionNumber");
 
-const previousBtn = document.getElementById("previousBtn");
-const nextBtn = document.getElementById("nextBtn");
+const questionText =
+    document.getElementById("questionText");
 
-const progressFill = document.getElementById("progressFill");
+const options =
+    document.getElementById("options");
 
+const previousBtn =
+    document.getElementById("previousBtn");
+
+const nextBtn =
+    document.getElementById("nextBtn");
+
+const progressFill =
+    document.getElementById("progressFill");
+
+const progressText =
+    document.getElementById("progressText");
 
 function loadQuestion() {
 
@@ -18,7 +118,8 @@ function loadQuestion() {
     questionNumber.textContent =
         `Question ${currentQuestion + 1}`;
 
-    questionText.textContent = q.question;
+    questionText.textContent =
+        q.question;
 
     options.innerHTML = "";
 
@@ -48,18 +149,22 @@ function loadQuestion() {
 
     });
 
-    
-
     progressFill.style.width =
         ((currentQuestion + 1) / questions.length) * 100 + "%";
 
-    previousBtn.disabled = currentQuestion === 0;
+    progressText.textContent =
+        `${currentQuestion + 1} / ${questions.length}`;
+
+    previousBtn.disabled =
+        currentQuestion === 0;
 
     if (currentQuestion === questions.length - 1) {
 
         nextBtn.textContent = "Submit Quiz";
 
-    } else {
+    }
+
+    else {
 
         nextBtn.textContent = "Next →";
 
@@ -83,9 +188,15 @@ nextBtn.addEventListener("click", function() {
 
         loadQuestion();
 
-    } else {
+    }
 
-        alert("Quiz Submitted!");
+    else {
+
+        clearInterval(countdown);
+
+        alert("🎉 Quiz Submitted!");
+
+        // Later we can calculate score here
 
     }
 

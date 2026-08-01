@@ -35,7 +35,7 @@ playButtons.forEach(function (button) {
 
         // Save selected quiz
         localStorage.setItem("subject", subject);
-        localStorage.setItem("difficulty", level);
+        localStorage.setItem("level", level);
 
         // Go to Instructions Page
         window.location.href = "instructions.html";
@@ -48,15 +48,11 @@ playButtons.forEach(function (button) {
 playButtons.forEach(function (button) {
 
     button.addEventListener("mouseenter", function () {
-
         this.style.transform = "translateY(-3px) scale(1.02)";
-
     });
 
     button.addEventListener("mouseleave", function () {
-
         this.style.transform = "";
-
     });
 
 });
