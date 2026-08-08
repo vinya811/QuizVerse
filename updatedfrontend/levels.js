@@ -6,7 +6,8 @@
 const params = new URLSearchParams(window.location.search);
 const subject = params.get("subject");
 
-console.log("Level page subject:", subject);
+console.log("FULL URL:", window.location.href);
+console.log("SUBJECT FROM URL:", subject);
 
 // Elements
 const subjectTitle = document.getElementById("subject-title");
@@ -35,11 +36,15 @@ playButtons.forEach(function (button) {
 
         const level = this.dataset.level;
 
-        // Save selected quiz
+        console.log("Subject before saving:", subject);
+        console.log("Selected level:", level);
+
         localStorage.setItem("subject", subject);
         localStorage.setItem("level", level);
 
-        // Go to Instructions Page
+        console.log("Saved subject:", localStorage.getItem("subject"));
+        console.log("Saved level:", localStorage.getItem("level"));
+
         window.location.href = "instructions.html";
 
     });
