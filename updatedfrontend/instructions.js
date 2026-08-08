@@ -24,7 +24,7 @@ const points = document.getElementById("points");
 
 if (level === "easy") {
 
-    questions.textContent = "20";
+    questions.textContent = "10";
     time.textContent = "15 Minutes";
     points.textContent = "+5";
 
@@ -32,7 +32,7 @@ if (level === "easy") {
 
 else if (level === "medium") {
 
-    questions.textContent = "20";
+    questions.textContent = "10";
     time.textContent = "20 Minutes";
     points.textContent = "+10";
 
@@ -40,7 +40,7 @@ else if (level === "medium") {
 
 else {
 
-    questions.textContent = "20";
+    questions.textContent = "10";
     time.textContent = "25 Minutes";
     points.textContent = "+15";
 
