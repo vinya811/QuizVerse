@@ -19,21 +19,21 @@ const quizSettings = {
         subject: "Easy Quiz",
         difficulty: "Easy Level",
         questions: 10,
-        minutes: 15,
+        minutes: 5,
         points: "+5"
     },
     medium: {
         subject: "Medium Quiz",
         difficulty: "Medium Level",
         questions: 10,
-        minutes: 20,
+        minutes: 10,
         points: "+10"
     },
     hard: {
         subject: "Hard Quiz",
         difficulty: "Hard Level",
         questions: 10,
-        minutes: 25,
+        minutes: 15,
         points: "+15"
     }
 };
