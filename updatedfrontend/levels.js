@@ -6,6 +6,8 @@
 const params = new URLSearchParams(window.location.search);
 const subject = params.get("subject");
 
+console.log("Level page subject:", subject);
+
 // Elements
 const subjectTitle = document.getElementById("subject-title");
 const backButton = document.getElementById("back-btn");
