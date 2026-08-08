@@ -144,7 +144,7 @@ Choose Level
 button.addEventListener("click", function () {
 
     window.location.href =
-        `levels.html?subject=${quiz.subject}`;
+        `../updatedfrontend/levels.html?subject=${quiz.subject}`;
 
 });
 

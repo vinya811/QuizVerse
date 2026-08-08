@@ -1,4 +1,4 @@
-```javascript
+
 const questions = [
 
     
@@ -319,4 +319,4 @@ const questions = [
     }
 
 ];
-```
+
