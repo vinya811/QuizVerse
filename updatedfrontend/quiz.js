@@ -4,6 +4,15 @@
 
 const subject = localStorage.getItem("subject");
 const level = localStorage.getItem("level") || "easy";
+console.log("Subject:", subject);
+console.log("Level:", level);
+
+const selectedQuestions = questions.filter(function(question) {
+    return question.subject === subject &&
+           question.difficulty === level;
+});
+
+console.log("Selected Questions:", selectedQuestions);
 
 const quizSettings = {
     easy: {
@@ -113,7 +122,7 @@ const progressText =
 
 function loadQuestion() {
 
-    const q = questions[currentQuestion];
+    const q = selectedQuestions[currentQuestion];
 
     questionNumber.textContent =
         `Question ${currentQuestion + 1}`;
@@ -150,15 +159,15 @@ function loadQuestion() {
     });
 
     progressFill.style.width =
-        ((currentQuestion + 1) / questions.length) * 100 + "%";
+        ((currentQuestion + 1) / selectedQuestions.length) * 100 + "%";
 
     progressText.textContent =
-        `${currentQuestion + 1} / ${questions.length}`;
+        `${currentQuestion + 1} / ${selectedQuestions.length}`;
 
     previousBtn.disabled =
         currentQuestion === 0;
 
-    if (currentQuestion === questions.length - 1) {
+    if (currentQuestion === selectedQuestions.length - 1) {
 
         nextBtn.textContent = "Submit Quiz";
 
@@ -182,7 +191,7 @@ nextBtn.addEventListener("click", function() {
 
     }
 
-    if (currentQuestion < questions.length - 1) {
+    if (currentQuestion < selectedQuestions.length - 1) {
 
         currentQuestion++;
 
