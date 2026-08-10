@@ -98,7 +98,22 @@ const countdown = setInterval(updateTimer, 1000);
 
 let currentQuestion = 0;
 let selectedAnswers = [];
+function calculateScore() {
+    let correct = 0;
 
+    selectedQuestions.forEach(function(question, index) {
+        const selectedIndex = selectedAnswers[index];
+
+        if (
+            selectedIndex !== undefined &&
+            question.options[selectedIndex] === question.correctAnswer
+        ) {
+            correct++;
+        }
+    });
+
+    return correct;
+}
 const questionNumber =
     document.getElementById("questionNumber");
 
@@ -199,15 +214,24 @@ nextBtn.addEventListener("click", function() {
 
     }
 
-    else {
+   else {
 
-        clearInterval(countdown);
+    clearInterval(countdown);
 
-        alert("🎉 Quiz Submitted!");
+    const correct = calculateScore();
+    const total = selectedQuestions.length;
+    const incorrect = total - correct;
+    const percentage = (correct / total) * 100;
 
-        // Later we can calculate score here
+    alert(
+        `🎉 Quiz Submitted!\n\n` +
+        `Correct: ${correct}\n` +
+        `Incorrect: ${incorrect}\n` +
+        `Score: ${percentage}%`
+    );
 
-    }
+}
+
 
 });
 
