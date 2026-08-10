@@ -11,7 +11,12 @@ const selectedQuestions = questions.filter(function(question) {
     return question.subject === subject &&
            question.difficulty === level;
 });
-
+if (selectedQuestions.length === 0) {
+    document.getElementById("questionText").textContent =
+        "⚠️ No questions found. Please go back and select a subject/level again.";
+    document.querySelectorAll(".buttons button").forEach(btn => btn.disabled = true);
+    throw new Error("No questions loaded — subject/level missing from localStorage.");
+}
 console.log("Selected Questions:", selectedQuestions);
 
 const quizSettings = {
