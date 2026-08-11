@@ -2,15 +2,12 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>QuizVerse Quiz</title>
 
     <link rel="stylesheet" href="quiz.css">
-
 </head>
 
 <body>
@@ -24,18 +21,24 @@
         </div>
 
         <div class="timer">
-            ⏰ <span id="timer"></span>
+            ⏰ <span id="timer">5:00</span>
         </div>
 
     </header>
+
 
     <!-- MAIN -->
 
     <main>
 
-        <h1 id="subject"></h1>
+        <h1 id="subject">
+            Loading Quiz...
+        </h1>
 
-        <p id="difficulty"></p>
+        <p id="difficulty">
+            Loading...
+        </p>
+
 
         <!-- INFO CARDS -->
 
@@ -51,13 +54,17 @@
 
             </div>
 
+
             <div class="info-card">
 
-                <h2 id="timeLimit"></h2>
+                <h2 id="timeLimit">
+                    5 Min
+                </h2>
 
                 <p>Time</p>
 
             </div>
+
 
             <div class="info-card">
 
@@ -68,6 +75,7 @@
                 <p>Points</p>
 
             </div>
+
 
             <div class="info-card">
 
@@ -81,13 +89,18 @@
 
         </div>
 
+
         <!-- PROGRESS BAR -->
 
         <div class="progress">
 
-            <div class="progress-fill" id="progressFill"></div>
+            <div
+                class="progress-fill"
+                id="progressFill">
+            </div>
 
         </div>
+
 
         <!-- QUESTION -->
 
@@ -102,10 +115,10 @@
             </h3>
 
             <div id="options">
-
             </div>
 
         </div>
+
 
         <!-- BUTTONS -->
 
@@ -122,7 +135,8 @@
         </div>
 
     </main>
-    
+
+
     <script src="questions.js"></script>
     <script src="quiz.js"></script>
 

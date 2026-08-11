@@ -1,9 +1,8 @@
-
 const questions = [
 
-    
-    // JAVASCRIPT - EASY (10 QUESTIONS)
-    
+    // ==================================================
+    // JAVASCRIPT - EASY
+    // ==================================================
 
     {
         question: "Which keyword is used to declare a variable in JavaScript?",
@@ -90,9 +89,11 @@ const questions = [
         difficulty: "easy"
     },
 
-    // JAVASCRIPT - MEDIUM (10 QUESTIONS)
-    
-    
+
+    // ==================================================
+    // JAVASCRIPT - MEDIUM
+    // ==================================================
+
     {
         question: "What does the === operator check?",
         options: [
@@ -194,9 +195,9 @@ const questions = [
     },
 
 
-    
-    // JAVASCRIPT - HARD (10 QUESTIONS)
-    
+    // ==================================================
+    // JAVASCRIPT - HARD
+    // ==================================================
 
     {
         question: "What is a closure in JavaScript?",
@@ -316,7 +317,306 @@ const questions = [
         correctAnswer: "The object associated with the current execution context",
         subject: "javascript",
         difficulty: "hard"
+    },
+
+
+    // ==================================================
+    // GENERAL KNOWLEDGE - EASY
+    // ==================================================
+
+    {
+        question: "What is the capital of India?",
+        options: ["Mumbai", "New Delhi", "Kolkata", "Chennai"],
+        correctAnswer: "New Delhi",
+        subject: "gk",
+        difficulty: "easy"
+    },
+
+    {
+        question: "Which planet is known as the Red Planet?",
+        options: ["Earth", "Mars", "Jupiter", "Venus"],
+        correctAnswer: "Mars",
+        subject: "gk",
+        difficulty: "easy"
+    },
+
+    {
+        question: "How many days are there in a week?",
+        options: ["5", "6", "7", "8"],
+        correctAnswer: "7",
+        subject: "gk",
+        difficulty: "easy"
+    },
+
+    {
+        question: "Which is the largest ocean on Earth?",
+        options: [
+            "Atlantic Ocean",
+            "Indian Ocean",
+            "Pacific Ocean",
+            "Arctic Ocean"
+        ],
+        correctAnswer: "Pacific Ocean",
+        subject: "gk",
+        difficulty: "easy"
+    },
+
+    {
+        question: "How many colors are traditionally found in a rainbow?",
+        options: ["5", "6", "7", "8"],
+        correctAnswer: "7",
+        subject: "gk",
+        difficulty: "easy"
+    },
+
+    {
+        question: "Which animal is known as the King of the Jungle?",
+        options: ["Tiger", "Lion", "Elephant", "Leopard"],
+        correctAnswer: "Lion",
+        subject: "gk",
+        difficulty: "easy"
+    },
+
+    {
+        question: "Which is the largest continent?",
+        options: ["Africa", "Europe", "Asia", "Australia"],
+        correctAnswer: "Asia",
+        subject: "gk",
+        difficulty: "easy"
+    },
+
+    {
+        question: "Which gas do humans need to breathe?",
+        options: ["Carbon dioxide", "Oxygen", "Nitrogen", "Hydrogen"],
+        correctAnswer: "Oxygen",
+        subject: "gk",
+        difficulty: "easy"
+    },
+
+    {
+        question: "How many months are there in a year?",
+        options: ["10", "11", "12", "13"],
+        correctAnswer: "12",
+        subject: "gk",
+        difficulty: "easy"
+    },
+
+    {
+        question: "Which is the fastest land animal?",
+        options: ["Lion", "Horse", "Cheetah", "Tiger"],
+        correctAnswer: "Cheetah",
+        subject: "gk",
+        difficulty: "easy"
+    },
+
+
+    // ==================================================
+    // GENERAL KNOWLEDGE - MEDIUM
+    // ==================================================
+
+    {
+        question: "Who wrote the Indian national anthem?",
+        options: [
+            "Rabindranath Tagore",
+            "Bankim Chandra Chattopadhyay",
+            "Sarojini Naidu",
+            "Subhash Chandra Bose"
+        ],
+        correctAnswer: "Rabindranath Tagore",
+        subject: "gk",
+        difficulty: "medium"
+    },
+
+    {
+        question: "Which is the longest river in India?",
+        options: ["Yamuna", "Ganga", "Godavari", "Narmada"],
+        correctAnswer: "Ganga",
+        subject: "gk",
+        difficulty: "medium"
+    },
+
+    {
+        question: "Which country is known as the Land of the Rising Sun?",
+        options: ["China", "Japan", "Thailand", "South Korea"],
+        correctAnswer: "Japan",
+        subject: "gk",
+        difficulty: "medium"
+    },
+
+    {
+        question: "Which vitamin is mainly produced when human skin is exposed to sunlight?",
+        options: ["Vitamin A", "Vitamin B", "Vitamin C", "Vitamin D"],
+        correctAnswer: "Vitamin D",
+        subject: "gk",
+        difficulty: "medium"
+    },
+
+    {
+        question: "Who was the first person to walk on the Moon?",
+        options: [
+            "Yuri Gagarin",
+            "Neil Armstrong",
+            "Buzz Aldrin",
+            "Michael Collins"
+        ],
+        correctAnswer: "Neil Armstrong",
+        subject: "gk",
+        difficulty: "medium"
+    },
+
+    {
+        question: "Which is the smallest continent by land area?",
+        options: ["Europe", "Australia", "South America", "Antarctica"],
+        correctAnswer: "Australia",
+        subject: "gk",
+        difficulty: "medium"
+    },
+
+    {
+        question: "What is the currency of Japan?",
+        options: ["Won", "Yuan", "Yen", "Dollar"],
+        correctAnswer: "Yen",
+        subject: "gk",
+        difficulty: "medium"
+    },
+
+    {
+        question: "Which organ pumps blood throughout the human body?",
+        options: ["Lungs", "Brain", "Heart", "Kidney"],
+        correctAnswer: "Heart",
+        subject: "gk",
+        difficulty: "medium"
+    },
+
+    {
+        question: "Which is the largest planet in our Solar System?",
+        options: ["Earth", "Saturn", "Jupiter", "Neptune"],
+        correctAnswer: "Jupiter",
+        subject: "gk",
+        difficulty: "medium"
+    },
+
+    {
+        question: "Who is known as the Father of the Indian Constitution?",
+        options: [
+            "Mahatma Gandhi",
+            "Jawaharlal Nehru",
+            "B. R. Ambedkar",
+            "Sardar Patel"
+        ],
+        correctAnswer: "B. R. Ambedkar",
+        subject: "gk",
+        difficulty: "medium"
+    },
+
+
+    // ==================================================
+    // GENERAL KNOWLEDGE - HARD
+    // ==================================================
+
+    {
+        question: "Which Indian state has the longest coastline?",
+        options: ["Maharashtra", "Gujarat", "Tamil Nadu", "Andhra Pradesh"],
+        correctAnswer: "Gujarat",
+        subject: "gk",
+        difficulty: "hard"
+    },
+
+    {
+        question: "What is the SI unit of electric resistance?",
+        options: ["Volt", "Ampere", "Ohm", "Watt"],
+        correctAnswer: "Ohm",
+        subject: "gk",
+        difficulty: "hard"
+    },
+
+    {
+        question: "Which treaty formally ended World War I?",
+        options: [
+            "Treaty of Paris",
+            "Treaty of Versailles",
+            "Treaty of Vienna",
+            "Treaty of Rome"
+        ],
+        correctAnswer: "Treaty of Versailles",
+        subject: "gk",
+        difficulty: "hard"
+    },
+
+    {
+        question: "Which is the deepest ocean trench in the world?",
+        options: [
+            "Java Trench",
+            "Tonga Trench",
+            "Mariana Trench",
+            "Puerto Rico Trench"
+        ],
+        correctAnswer: "Mariana Trench",
+        subject: "gk",
+        difficulty: "hard"
+    },
+
+    {
+        question: "Who discovered the law of universal gravitation?",
+        options: [
+            "Albert Einstein",
+            "Galileo Galilei",
+            "Isaac Newton",
+            "Johannes Kepler"
+        ],
+        correctAnswer: "Isaac Newton",
+        subject: "gk",
+        difficulty: "hard"
+    },
+
+    {
+        question: "Which is the hardest naturally occurring mineral?",
+        options: ["Gold", "Iron", "Diamond", "Quartz"],
+        correctAnswer: "Diamond",
+        subject: "gk",
+        difficulty: "hard"
+    },
+
+    {
+        question: "Which Indian mission was India's first mission to Mars?",
+        options: [
+            "Chandrayaan-1",
+            "Mangalyaan",
+            "Chandrayaan-2",
+            "Aditya-L1"
+        ],
+        correctAnswer: "Mangalyaan",
+        subject: "gk",
+        difficulty: "hard"
+    },
+
+    {
+        question: "Which branch of science deals with earthquakes?",
+        options: [
+            "Seismology",
+            "Ecology",
+            "Astronomy",
+            "Meteorology"
+        ],
+        correctAnswer: "Seismology",
+        subject: "gk",
+        difficulty: "hard"
+    },
+
+    {
+        question: "Which element has the chemical symbol Au?",
+        options: ["Silver", "Gold", "Copper", "Aluminium"],
+        correctAnswer: "Gold",
+        subject: "gk",
+        difficulty: "hard"
+    },
+
+    {
+        question: "Which ancient civilization built Machu Picchu?",
+        options: ["Roman", "Maya", "Inca", "Egyptian"],
+        correctAnswer: "Inca",
+        subject: "gk",
+        difficulty: "hard"
     }
 
 ];
-

@@ -5,7 +5,10 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Create Account - QuizVerse</title>
 
@@ -13,104 +16,87 @@
 
 </head>
 
-<body>
 
+<body>
 
     <div class="signup-card">
 
 
-        <button id="back-btn" class="back-btn">
+        <!-- BACK BUTTON -->
 
+        <button
+            id="back-btn"
+            class="back-btn"
+            type="button"
+        >
             ← Back
-
         </button>
 
 
+        <!-- HEADING -->
+
         <h1>
-
             Create Account
-
         </h1>
 
-
         <p>
-
             Join QuizVerse and start your quiz journey
-
         </p>
 
 
         <!-- EMAIL -->
 
         <input
-
             type="email"
-
             id="email"
-
             placeholder="Enter your email"
-
+            autocomplete="email"
         >
 
 
         <!-- USERNAME -->
 
         <input
-
             type="text"
-
             id="username"
-
             placeholder="Enter your username"
-
+            autocomplete="username"
         >
 
 
         <!-- PASSWORD -->
 
         <input
-
             type="password"
-
             id="password"
-
             placeholder="Create a password"
-
+            autocomplete="new-password"
         >
 
 
         <!-- PHONE NUMBER -->
 
         <input
-
             type="tel"
-
             id="phone"
-
             placeholder="Enter your phone number"
-
+            autocomplete="tel"
         >
 
 
         <!-- DATE OF BIRTH -->
 
-        <label>
-
+        <label for="dob">
             Date of Birth
-
         </label>
 
-
         <input
-
             type="date"
-
             id="dob"
-
         >
 
 
-        <!-- ERROR MESSAGE -->
+        <!-- ERROR / SUCCESS MESSAGE -->
 
         <p id="error-message"></p>
 
@@ -118,15 +104,11 @@
         <!-- REGISTER BUTTON -->
 
         <button
-
             id="register-btn"
-
             class="register-btn"
-
+            type="button"
         >
-
             Register
-
         </button>
 
 

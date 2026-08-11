@@ -1,3 +1,7 @@
+// ==============================
+// GET ELEMENTS
+// ==============================
+
 const usernameInput =
     document.getElementById("username-input");
 
@@ -19,19 +23,33 @@ const message =
 const themeButton =
     document.getElementById("theme-btn");
 
-
 const email =
     localStorage.getItem("email");
 
 
+// ==============================
+// CHECK LOGIN
+// ==============================
+
+if (!email) {
+
+    alert("Please login first.");
+
+    window.location.href = "index2.html";
+
+}
+
+
+// ==============================
 // LOAD USER PROFILE
+// ==============================
 
 async function loadUserProfile() {
 
     try {
 
         const response = await fetch(
-            `http://localhost:5000/api/user/${email}`
+            `http://localhost:5000/api/user/${encodeURIComponent(email)}`
         );
 
         const data = await response.json();
@@ -47,9 +65,13 @@ async function loadUserProfile() {
 
         }
 
-        usernameInput.value = data.username;
+        usernameInput.value =
+            data.username || "";
 
-        phoneInput.value = data.phone;
+        phoneInput.value =
+            data.phone || "";
+
+        // Keep username updated locally
 
         localStorage.setItem(
             "username",
@@ -60,47 +82,38 @@ async function loadUserProfile() {
 
     catch (error) {
 
-    console.error("DELETE ERROR:", error);
+        console.error(
+            "PROFILE LOAD ERROR:",
+            error
+        );
 
-    message.style.color = "red";
+        message.style.color = "red";
 
-    message.textContent =
-        "❌ " + error.message;
+        message.textContent =
+            "❌ Cannot connect to server";
+
+    }
 
 }
 
-}
+
+// Load profile
 
 loadUserProfile();
 
 
+// ==============================
 // DARK MODE
+// ==============================
 
-if (localStorage.getItem("darkMode") === "true") {
-
-    document.body.classList.add("dark-mode");
-
-    themeButton.textContent =
-        "☀️ Light Mode";
-
-}
-
-
-// DARK MODE BUTTON
-
-themeButton.addEventListener("click", function () {
-
-    document.body.classList.toggle("dark-mode");
+function loadTheme() {
 
     const darkMode =
-        document.body.classList.contains("dark-mode");
-
-    localStorage.setItem(
-        "darkMode",
-        darkMode
-    );
+        localStorage.getItem("darkMode") === "true";
 
     if (darkMode) {
+
+        document.body.classList.add("dark-mode");
 
         themeButton.textContent =
             "☀️ Light Mode";
@@ -109,198 +122,329 @@ themeButton.addEventListener("click", function () {
 
     else {
 
+        document.body.classList.remove("dark-mode");
+
         themeButton.textContent =
             "🌙 Dark Mode";
 
     }
 
-});
+}
 
 
-// SAVE CHANGES
+// Load saved theme
 
-saveButton.addEventListener("click", async function () {
+loadTheme();
 
-    const newUsername =
-        usernameInput.value.trim();
 
-    const newPhone =
-        phoneInput.value.trim();
+// ==============================
+// THEME BUTTON
+// ==============================
 
-    if (newUsername === "") {
+themeButton.addEventListener(
+    "click",
+    function () {
 
-        message.style.color = "red";
-
-        message.textContent =
-            "⚠️ Please enter a username";
-
-        return;
-
-    }
-
-    if (newPhone === "") {
-
-        message.style.color = "red";
-
-        message.textContent =
-            "⚠️ Please enter a phone number";
-
-        return;
-
-    }
-
-    try {
-
-        const response = await fetch(
-
-            "http://localhost:5000/api/user/update",
-
-            {
-
-                method: "PUT",
-
-                headers: {
-
-                    "Content-Type": "application/json"
-
-                },
-
-                body: JSON.stringify({
-
-                    email: email,
-
-                    username: newUsername,
-
-                    phone: newPhone
-
-                })
-
-            }
-
+        document.body.classList.toggle(
+            "dark-mode"
         );
 
-        const data =
-            await response.json();
-
-        if (!response.ok) {
-
-            message.style.color = "red";
-
-            message.textContent =
-                "❌ " + data.message;
-
-            return;
-
-        }
+        const darkMode =
+            document.body.classList.contains(
+                "dark-mode"
+            );
 
         localStorage.setItem(
-            "username",
-            data.username
+            "darkMode",
+            darkMode
         );
 
-        message.style.color = "green";
+        if (darkMode) {
 
-        message.textContent =
-            "✅ Profile updated successfully";
+            themeButton.textContent =
+                "☀️ Light Mode";
 
-    }
+        }
 
-    catch (error) {
+        else {
 
-        console.log(error);
+            themeButton.textContent =
+                "🌙 Dark Mode";
 
-        message.style.color = "red";
-
-        message.textContent =
-            "❌ Cannot connect to server";
+        }
 
     }
+);
 
-});
+
+// ==============================
+// SAVE CHANGES
+// ==============================
+
+saveButton.addEventListener(
+    "click",
+    async function () {
+
+        const newUsername =
+            usernameInput.value.trim();
+
+        const newPhone =
+            phoneInput.value.trim();
 
 
-// DELETE ACCOUNT
+        // Validate username
 
-deleteButton.addEventListener("click", async function () {
-
-    const confirmDelete = confirm(
-        "Are you sure you want to permanently delete your account?"
-    );
-
-    if (!confirmDelete) {
-
-        return;
-
-    }
-
-    try {
-
-        const response = await fetch(
-
-            "http://localhost:5000/api/user/delete",
-
-            {
-
-                method: "DELETE",
-
-                headers: {
-
-                    "Content-Type": "application/json"
-
-                },
-
-                body: JSON.stringify({
-
-                    email: email
-
-                })
-
-            }
-
-        );
-
-        const data =
-            await response.json();
-
-        if (!response.ok) {
+        if (newUsername === "") {
 
             message.style.color = "red";
 
             message.textContent =
-                "❌ " + data.message;
+                "⚠️ Please enter a username";
 
             return;
 
         }
 
-        localStorage.clear();
 
-        alert("✅ Account deleted successfully");
+        // Validate phone
+
+        if (newPhone === "") {
+
+            message.style.color = "red";
+
+            message.textContent =
+                "⚠️ Please enter a phone number";
+
+            return;
+
+        }
+
+
+        try {
+
+            saveButton.disabled = true;
+
+            saveButton.textContent =
+                "Saving...";
+
+
+            const response = await fetch(
+
+                "http://localhost:5000/api/user/update",
+
+                {
+
+                    method: "PUT",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json"
+
+                    },
+
+                    body: JSON.stringify({
+
+                        email: email,
+
+                        username: newUsername,
+
+                        phone: newPhone
+
+                    })
+
+                }
+
+            );
+
+
+            const data =
+                await response.json();
+
+
+            if (!response.ok) {
+
+                message.style.color = "red";
+
+                message.textContent =
+                    "❌ " + data.message;
+
+                return;
+
+            }
+
+
+            // Update local username
+
+            localStorage.setItem(
+                "username",
+                data.username
+            );
+
+
+            message.style.color =
+                "green";
+
+            message.textContent =
+                "✅ Profile updated successfully";
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "UPDATE ERROR:",
+                error
+            );
+
+            message.style.color =
+                "red";
+
+            message.textContent =
+                "❌ Cannot connect to server";
+
+        }
+
+        finally {
+
+            saveButton.disabled =
+                false;
+
+            saveButton.textContent =
+                "Save Changes";
+
+        }
+
+    }
+);
+
+
+// ==============================
+// DELETE ACCOUNT
+// ==============================
+
+deleteButton.addEventListener(
+    "click",
+    async function () {
+
+        const confirmDelete =
+            confirm(
+                "Are you sure you want to permanently delete your account?"
+            );
+
+
+        if (!confirmDelete) {
+
+            return;
+
+        }
+
+
+        try {
+
+            deleteButton.disabled = true;
+
+            deleteButton.textContent =
+                "Deleting...";
+
+
+            const response = await fetch(
+
+                "http://localhost:5000/api/user/delete",
+
+                {
+
+                    method: "DELETE",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json"
+
+                    },
+
+                    body: JSON.stringify({
+
+                        email: email
+
+                    })
+
+                }
+
+            );
+
+
+            const data =
+                await response.json();
+
+
+            if (!response.ok) {
+
+                message.style.color =
+                    "red";
+
+                message.textContent =
+                    "❌ " + data.message;
+
+                return;
+
+            }
+
+
+            // Remove saved user information
+
+            localStorage.clear();
+
+
+            alert(
+                "✅ Account deleted successfully"
+            );
+
+
+            window.location.href =
+                "index2.html";
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "DELETE ERROR:",
+                error
+            );
+
+            message.style.color =
+                "red";
+
+            message.textContent =
+                "❌ Cannot connect to server";
+
+        }
+
+        finally {
+
+            deleteButton.disabled =
+                false;
+
+            deleteButton.textContent =
+                "🗑️ Delete My Account";
+
+        }
+
+    }
+);
+
+
+// ==============================
+// BACK BUTTON
+// ==============================
+
+backButton.addEventListener(
+    "click",
+    function () {
 
         window.location.href =
-            "index2.html";
+            "index4.html";
 
     }
-
-    catch (error) {
-
-        console.log(error);
-
-        message.style.color = "red";
-
-        message.textContent =
-            "❌ Cannot connect to server";
-
-    }
-
-});
-
-
-// BACK BUTTON
-
-backButton.addEventListener("click", function () {
-
-    window.location.href =
-        "index4.html";
-
-});
+);

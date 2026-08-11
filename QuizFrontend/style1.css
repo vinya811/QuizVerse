@@ -8,6 +8,7 @@
     box-sizing: border-box;
 }
 
+
 /* ===========================
    BODY
 =========================== */
@@ -15,10 +16,17 @@
 body {
     font-family: Arial, sans-serif;
     min-height: 100vh;
-    background: linear-gradient(135deg, #f7f6ff, #eef2ff);
+
+    background: linear-gradient(
+        135deg,
+        #f7f6ff,
+        #eef2ff
+    );
+
     color: #111827;
     overflow-x: hidden;
 }
+
 
 /* ===========================
    LOGO
@@ -26,6 +34,7 @@ body {
 
 .logo {
     position: absolute;
+
     top: 25px;
     left: 35px;
 
@@ -49,10 +58,15 @@ body {
 
     border-radius: 14px;
 
-    background: linear-gradient(135deg, #6758f5, #8b7cf6);
+    background: linear-gradient(
+        135deg,
+        #6758f5,
+        #8b7cf6
+    );
 
     font-size: 25px;
 }
+
 
 /* ===========================
    MAIN CONTENT
@@ -60,6 +74,7 @@ body {
 
 .welcome-content {
     position: absolute;
+
     top: 50%;
     left: 50%;
 
@@ -71,19 +86,17 @@ body {
     text-align: center;
 }
 
+
 /* ===========================
-   QUIZ IMAGE
+   QUIZ ICON
 =========================== */
 
 .quiz-icon {
+    font-size: 80px;
+
     margin-bottom: 25px;
 }
 
-.quiz-icon img {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-}
 
 /* ===========================
    HEADING
@@ -95,11 +108,16 @@ h1 {
 
     margin-bottom: 20px;
 
-    background: linear-gradient(90deg, #111827, #6758f5);
+    background: linear-gradient(
+        90deg,
+        #111827,
+        #6758f5
+    );
 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 
 /* ===========================
    PARAGRAPH
@@ -114,12 +132,12 @@ p {
     margin-bottom: 35px;
 }
 
+
 /* ===========================
    SLIDE BUTTON
 =========================== */
 
 .slide-container {
-
     width: min(350px, 100%);
     height: 75px;
 
@@ -131,11 +149,11 @@ p {
 
     background: white;
 
-    box-shadow: 0 10px 30px rgba(70, 60, 180, 0.15);
+    box-shadow:
+        0 10px 30px rgba(70, 60, 180, 0.15);
 }
 
 .slide-button {
-
     width: 100%;
     height: 100%;
 
@@ -150,18 +168,15 @@ p {
 }
 
 .slide-button span {
-
     width: 100%;
 
     text-align: center;
 
     font-size: 18px;
-
     font-weight: 500;
 }
 
 .slide-circle {
-
     width: 61px;
     height: 61px;
 
@@ -174,7 +189,11 @@ p {
 
     border-radius: 50%;
 
-    background: linear-gradient(135deg, #536dfe, #6758f5);
+    background: linear-gradient(
+        135deg,
+        #536dfe,
+        #6758f5
+    );
 
     color: white;
 
@@ -191,12 +210,12 @@ p {
     cursor: grabbing;
 }
 
+
 /* ===========================
    SMALL TEXT
 =========================== */
 
 small {
-
     display: block;
 
     margin-top: 18px;
@@ -206,6 +225,7 @@ small {
     font-size: 15px;
 }
 
+
 /* ===========================
    TABLET
 =========================== */
@@ -213,7 +233,6 @@ small {
 @media (max-width: 768px) {
 
     .logo {
-
         top: 20px;
         left: 20px;
 
@@ -221,7 +240,6 @@ small {
     }
 
     .logo-icon {
-
         width: 42px;
         height: 42px;
 
@@ -229,34 +247,27 @@ small {
     }
 
     .welcome-content {
-
         width: 92%;
-
         top: 55%;
     }
 
-    .quiz-icon img {
-
-        width: 80px;
-        height: 80px;
+    .quiz-icon {
+        font-size: 65px;
     }
 
     h1 {
-
         font-size: 46px;
     }
 
     p {
-
         font-size: 17px;
     }
 
     .slide-container {
-
         width: 100%;
     }
-
 }
+
 
 /* ===========================
    MOBILE
@@ -265,7 +276,6 @@ small {
 @media (max-width: 480px) {
 
     .logo {
-
         top: 18px;
         left: 18px;
 
@@ -275,7 +285,6 @@ small {
     }
 
     .logo-icon {
-
         width: 38px;
         height: 38px;
 
@@ -283,35 +292,28 @@ small {
     }
 
     .welcome-content {
-
         top: 58%;
     }
 
-    .quiz-icon img {
-
-        width: 70px;
-        height: 70px;
+    .quiz-icon {
+        font-size: 55px;
 
         margin-bottom: 10px;
     }
 
     h1 {
-
         font-size: 34px;
     }
 
     p {
-
         font-size: 16px;
     }
 
     .slide-container {
-
         height: 70px;
     }
 
     .slide-circle {
-
         width: 56px;
         height: 56px;
 
@@ -319,12 +321,10 @@ small {
     }
 
     .slide-button span {
-
         font-size: 17px;
     }
 
     small {
-
         font-size: 14px;
     }
 }

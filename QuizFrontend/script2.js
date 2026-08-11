@@ -1,3 +1,7 @@
+// ==============================
+// GET ELEMENTS
+// ==============================
+
 const signupLink = document.getElementById("signup-link");
 
 const loginButton = document.getElementById("login-btn");
@@ -9,7 +13,9 @@ const loginPassword = document.getElementById("login-password");
 const loginError = document.getElementById("login-error");
 
 
+// ==============================
 // GO TO SIGN UP
+// ==============================
 
 signupLink.addEventListener("click", function () {
 
@@ -18,11 +24,28 @@ signupLink.addEventListener("click", function () {
 });
 
 
-// LOGIN BUTTON
+// ==============================
+// LOGIN
+// ==============================
 
 loginButton.addEventListener("click", async function () {
 
-    if (loginEmail.value.trim() === "") {
+    const email = loginEmail.value.trim();
+
+    const password = loginPassword.value.trim();
+
+
+    // Clear previous message
+
+    loginError.textContent = "";
+    loginError.style.color = "red";
+
+
+    // ==========================
+    // VALIDATION
+    // ==========================
+
+    if (email === "") {
 
         loginError.textContent =
             "⚠️ Please enter your email";
@@ -32,7 +55,7 @@ loginButton.addEventListener("click", async function () {
     }
 
 
-    if (loginPassword.value.trim() === "") {
+    if (password === "") {
 
         loginError.textContent =
             "⚠️ Please enter your password";
@@ -42,54 +65,70 @@ loginButton.addEventListener("click", async function () {
     }
 
 
+    // ==========================
+    // SEND LOGIN REQUEST
+    // ==========================
+
     try {
 
+        loginButton.disabled = true;
+
+        loginButton.textContent = "Logging in...";
+
+
         const response = await fetch(
-
             "http://localhost:5000/api/auth/login",
-
             {
-
                 method: "POST",
 
                 headers: {
-
                     "Content-Type": "application/json"
-
                 },
 
                 body: JSON.stringify({
-
-                    email: loginEmail.value,
-
-                    password: loginPassword.value
-
+                    email: email,
+                    password: password
                 })
-
             }
-
         );
 
 
         const data = await response.json();
 
 
+        // ==========================
+        // LOGIN FAILED
+        // ==========================
+
         if (!response.ok) {
 
             loginError.style.color = "red";
 
             loginError.textContent =
-                "❌ " + data.message;
+                "❌ " + (data.message || "Login failed");
+
+            loginButton.disabled = false;
+
+            loginButton.textContent = "Login";
 
             return;
 
         }
 
 
-        // SAVE USERNAME
+        // ==========================
+        // LOGIN SUCCESSFUL
+        // ==========================
 
-        localStorage.setItem("username", data.username);
-        localStorage.setItem("email", loginEmail.value);
+        localStorage.setItem(
+            "username",
+            data.username
+        );
+
+        localStorage.setItem(
+            "email",
+            data.email
+        );
 
 
         loginError.style.color = "green";
@@ -98,23 +137,28 @@ loginButton.addEventListener("click", async function () {
             "✅ Login successful!";
 
 
+        // Go to home page
+
         setTimeout(function () {
 
             window.location.href = "index4.html";
 
-        }, 1000);
+        }, 800);
 
 
     } catch (error) {
 
+        console.error("LOGIN ERROR:", error);
+
         loginError.style.color = "red";
 
         loginError.textContent =
+            "❌ Cannot connect to server. Make sure the backend is running.";
 
-            "❌ Cannot connect to server";
 
+        loginButton.disabled = false;
 
-        console.log(error);
+        loginButton.textContent = "Login";
 
     }
 
