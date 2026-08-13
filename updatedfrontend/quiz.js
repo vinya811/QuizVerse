@@ -219,24 +219,25 @@ nextBtn.addEventListener("click", function() {
 
     }
 
-   else {
+  else {
 
     clearInterval(countdown);
 
-    const correct = calculateScore();
-    const total = selectedQuestions.length;
-    const incorrect = total - correct;
-    const percentage = (correct / total) * 100;
 
-    alert(
-        `🎉 Quiz Submitted!\n\n` +
-        `Correct: ${correct}\n` +
-        `Incorrect: ${incorrect}\n` +
-        `Score: ${percentage}%`
+    // Save user's selected answers
+
+    localStorage.setItem(
+        "quizAnswers",
+        JSON.stringify(selectedAnswers)
     );
 
-}
 
+    // Open results page
+
+    window.location.href =
+        "results.html";
+
+}
 
 });
 
