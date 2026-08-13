@@ -81,7 +81,7 @@ registerButton.addEventListener("click", async function () {
         registerButton.textContent = "Registering...";
 
         const response = await fetch(
-            "http://localhost:5000/api/auth/register",
+            "https://quizverse-backend-si7g.onrender.com/api/auth/register",
             {
                 method: "POST",
 

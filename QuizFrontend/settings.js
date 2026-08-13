@@ -49,7 +49,7 @@ async function loadUserProfile() {
     try {
 
         const response = await fetch(
-            `http://localhost:5000/api/user/${encodeURIComponent(email)}`
+            `https://quizverse-backend-si7g.onrender.com/api/user/${encodeURIComponent(email)}`
         );
 
         const data = await response.json();
@@ -230,9 +230,9 @@ saveButton.addEventListener(
 
             const response = await fetch(
 
-                "http://localhost:5000/api/user/update",
+                "https://quizverse-backend-si7g.onrender.com/api/user/update"
 
-                {
+                ,{
 
                     method: "PUT",
 
@@ -350,9 +350,9 @@ deleteButton.addEventListener(
 
             const response = await fetch(
 
-                "http://localhost:5000/api/user/delete",
+                "https://quizverse-backend-si7g.onrender.com/api/user/delete"
 
-                {
+                ,{
 
                     method: "DELETE",
 
