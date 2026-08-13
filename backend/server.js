@@ -1,4 +1,9 @@
 require("dotenv").config();
+console.log("MONGO URI TYPE:", process.env.MONGO_URI?.split(":")[0]);
+
+const dns = require("dns");
+
+dns.promises.setServers(["8.8.8.8", "1.1.1.1"]);
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -25,6 +30,6 @@ mongoose.connect(process.env.MONGO_URI)
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-    console.log(`🚀 Server is running on http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`🚀 Server is running on port ${PORT}`);
 });

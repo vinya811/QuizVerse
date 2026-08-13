@@ -1,110 +1,49 @@
 // ==============================
-// GET QUIZ SETTINGS
+// LEVEL SETTINGS
 // ==============================
 
-const subject =
-    localStorage.getItem("subject");
-
-const level =
-    localStorage.getItem("level") || "easy";
-
+const subject = localStorage.getItem("subject");
+const level = localStorage.getItem("level") || "easy";
 console.log("Subject:", subject);
 console.log("Level:", level);
 
-
-// ==============================
-// SELECT QUESTIONS
-// ==============================
-
-const selectedQuestions =
-    questions.filter(function (question) {
-
-        return (
-            question.subject === subject &&
-            question.difficulty === level
-        );
-
-    });
-
-console.log(
-    "Selected Questions:",
-    selectedQuestions
-);
-
-
-// ==============================
-// CHECK QUESTIONS
-// ==============================
-
+const selectedQuestions = questions.filter(function(question) {
+    return question.subject === subject &&
+           question.difficulty === level;
+});
 if (selectedQuestions.length === 0) {
-
-    alert(
-        "No questions found for this subject and level."
-    );
-
-    window.location.href = "levels.html";
-
+    document.getElementById("questionText").textContent =
+        "⚠️ No questions found. Please go back and select a subject/level again.";
+    document.querySelectorAll(".buttons button").forEach(btn => btn.disabled = true);
+    throw new Error("No questions loaded — subject/level missing from localStorage.");
 }
-
-
-// ==============================
-// QUIZ SETTINGS
-// ==============================
+console.log("Selected Questions:", selectedQuestions);
 
 const quizSettings = {
-
     easy: {
-
         subject: "Easy Quiz",
-
         difficulty: "Easy Level",
-
         questions: 10,
-
         minutes: 5,
-
         points: "+5"
-
     },
-
     medium: {
-
         subject: "Medium Quiz",
-
         difficulty: "Medium Level",
-
         questions: 10,
-
         minutes: 10,
-
         points: "+10"
-
     },
-
     hard: {
-
         subject: "Hard Quiz",
-
         difficulty: "Hard Level",
-
         questions: 10,
-
         minutes: 15,
-
         points: "+15"
-
     }
-
 };
 
-
-// ==============================
-// CURRENT QUIZ
-// ==============================
-
-const currentQuiz =
-    quizSettings[level] || quizSettings.easy;
-
+const currentQuiz = quizSettings[level];
 
 // ==============================
 // DISPLAY QUIZ DETAILS
@@ -117,7 +56,7 @@ document.getElementById("difficulty").textContent =
     currentQuiz.difficulty;
 
 document.getElementById("totalQuestions").textContent =
-    selectedQuestions.length;
+    currentQuiz.questions;
 
 document.getElementById("timeLimit").textContent =
     currentQuiz.minutes + " Min";
@@ -125,47 +64,27 @@ document.getElementById("timeLimit").textContent =
 document.getElementById("points").textContent =
     currentQuiz.points;
 
-
 // ==============================
 // TIMER
 // ==============================
 
-let timeLeft =
-    currentQuiz.minutes * 60;
+let timeLeft = currentQuiz.minutes * 60;
 
-const timer =
-    document.getElementById("timer");
-
-let countdown;
-
-let quizFinished = false;
-
+const timer = document.getElementById("timer");
 
 function updateTimer() {
 
-    if (quizFinished) {
-        return;
-    }
-
-    const minutes =
-        Math.floor(timeLeft / 60);
-
-    const seconds =
-        timeLeft % 60;
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
 
     timer.textContent =
-        `${minutes}:${seconds
-            .toString()
-            .padStart(2, "0")}`;
-
+        `${minutes}:${seconds.toString().padStart(2, "0")}`;
 
     if (timeLeft <= 0) {
 
         clearInterval(countdown);
 
-        quizFinished = true;
-
-        submitQuiz(true);
+        alert("⏰ Time is up!");
 
         return;
     }
@@ -174,375 +93,164 @@ function updateTimer() {
 
 }
 
-
 updateTimer();
 
-countdown =
-    setInterval(updateTimer, 1000);
-
+const countdown = setInterval(updateTimer, 1000);
 
 // ==============================
-// QUIZ VARIABLES
+// QUIZ LOGIC
 // ==============================
 
 let currentQuestion = 0;
-
 let selectedAnswers = [];
+function calculateScore() {
+    let correct = 0;
 
+    selectedQuestions.forEach(function(question, index) {
+        const selectedIndex = selectedAnswers[index];
 
-// ==============================
-// ELEMENTS
-// ==============================
+        if (
+            selectedIndex !== undefined &&
+            question.options[selectedIndex] === question.correctAnswer
+        ) {
+            correct++;
+        }
+    });
 
+    return correct;
+}
 const questionNumber =
-    document.getElementById(
-        "questionNumber"
-    );
+    document.getElementById("questionNumber");
 
 const questionText =
-    document.getElementById(
-        "questionText"
-    );
+    document.getElementById("questionText");
 
 const options =
-    document.getElementById(
-        "options"
-    );
+    document.getElementById("options");
 
 const previousBtn =
-    document.getElementById(
-        "previousBtn"
-    );
+    document.getElementById("previousBtn");
 
 const nextBtn =
-    document.getElementById(
-        "nextBtn"
-    );
+    document.getElementById("nextBtn");
 
 const progressFill =
-    document.getElementById(
-        "progressFill"
-    );
+    document.getElementById("progressFill");
 
 const progressText =
-    document.getElementById(
-        "progressText"
-    );
-
-
-// ==============================
-// LOAD QUESTION
-// ==============================
+    document.getElementById("progressText");
 
 function loadQuestion() {
 
-    const q =
-        selectedQuestions[currentQuestion];
-
+    const q = selectedQuestions[currentQuestion];
 
     questionNumber.textContent =
         `Question ${currentQuestion + 1}`;
 
-
     questionText.textContent =
         q.question;
 
-
     options.innerHTML = "";
 
+    q.options.forEach(function(option, index) {
 
-    q.options.forEach(
-        function (option, index) {
+        const button = document.createElement("button");
 
-            const button =
-                document.createElement(
-                    "button"
-                );
+        button.classList.add("option");
 
+        button.textContent = option;
 
-            button.classList.add(
-                "option"
-            );
+        if (selectedAnswers[currentQuestion] === index) {
 
-
-            button.textContent =
-                option;
-
-
-            if (
-                selectedAnswers[
-                    currentQuestion
-                ] === index
-            ) {
-
-                button.classList.add(
-                    "selected"
-                );
-
-            }
-
-
-            button.addEventListener(
-                "click",
-                function () {
-
-                    selectedAnswers[
-                        currentQuestion
-                    ] = index;
-
-                    loadQuestion();
-
-                }
-            );
-
-
-            options.appendChild(button);
+            button.classList.add("selected");
 
         }
-    );
 
+        button.addEventListener("click", function() {
 
-    // ==========================
-    // PROGRESS
-    // ==========================
+            selectedAnswers[currentQuestion] = index;
 
-    const progress =
-        (
-            (currentQuestion + 1) /
-            selectedQuestions.length
-        ) * 100;
+            loadQuestion();
 
+        });
+
+        options.appendChild(button);
+
+    });
 
     progressFill.style.width =
-        progress + "%";
-
+        ((currentQuestion + 1) / selectedQuestions.length) * 100 + "%";
 
     progressText.textContent =
-        `${currentQuestion + 1} / ${
-            selectedQuestions.length
-        }`;
-
-
-    // ==========================
-    // PREVIOUS BUTTON
-    // ==========================
+        `${currentQuestion + 1} / ${selectedQuestions.length}`;
 
     previousBtn.disabled =
         currentQuestion === 0;
 
+    if (currentQuestion === selectedQuestions.length - 1) {
 
-    // ==========================
-    // NEXT BUTTON
-    // ==========================
-
-    if (
-        currentQuestion ===
-        selectedQuestions.length - 1
-    ) {
-
-        nextBtn.textContent =
-            "Submit Quiz";
+        nextBtn.textContent = "Submit Quiz";
 
     }
 
     else {
 
-        nextBtn.textContent =
-            "Next →";
+        nextBtn.textContent = "Next →";
 
     }
 
 }
 
+nextBtn.addEventListener("click", function() {
 
-// ==============================
-// NEXT / SUBMIT
-// ==============================
+    if (selectedAnswers[currentQuestion] === undefined) {
 
-nextBtn.addEventListener(
-    "click",
-    function () {
+        alert("Please select an option first!");
 
-        if (
-            selectedAnswers[
-                currentQuestion
-            ] === undefined
-        ) {
-
-            alert(
-                "Please select an option first!"
-            );
-
-            return;
-        }
-
-
-        if (
-            currentQuestion <
-            selectedQuestions.length - 1
-        ) {
-
-            currentQuestion++;
-
-            loadQuestion();
-
-        }
-
-        else {
-
-            submitQuiz(false);
-
-        }
-
-    }
-);
-
-
-// ==============================
-// PREVIOUS
-// ==============================
-
-previousBtn.addEventListener(
-    "click",
-    function () {
-
-        if (currentQuestion > 0) {
-
-            currentQuestion--;
-
-            loadQuestion();
-
-        }
-
-    }
-);
-
-
-// ==============================
-// CALCULATE SCORE
-// ==============================
-
-function calculateScore() {
-
-    let score = 0;
-
-    let correct = 0;
-
-    let wrong = 0;
-
-
-    selectedQuestions.forEach(
-        function (question, index) {
-
-            if (
-                selectedAnswers[index] ===
-                question.options.indexOf(
-                    question.correctAnswer
-                )
-            ) {
-
-                correct++;
-
-                score +=
-                    level === "easy"
-                        ? 5
-                        : level === "medium"
-                        ? 10
-                        : 15;
-
-            }
-
-            else {
-
-                wrong++;
-
-            }
-
-        }
-    );
-
-
-    return {
-        score,
-        correct,
-        wrong
-    };
-
-}
-
-
-// ==============================
-// SUBMIT QUIZ
-// ==============================
-
-function submitQuiz(timeUp) {
-
-    if (quizFinished && !timeUp) {
         return;
+
     }
 
-    quizFinished = true;
+    if (currentQuestion < selectedQuestions.length - 1) {
+
+        currentQuestion++;
+
+        loadQuestion();
+
+    }
+
+  else {
 
     clearInterval(countdown);
 
 
-    const result =
-        calculateScore();
-
+    // Save user's selected answers
 
     localStorage.setItem(
-        "quizScore",
-        result.score
-    );
-
-    localStorage.setItem(
-        "quizCorrect",
-        result.correct
-    );
-
-    localStorage.setItem(
-        "quizWrong",
-        result.wrong
-    );
-
-    localStorage.setItem(
-        "quizTotal",
-        selectedQuestions.length
+        "quizAnswers",
+        JSON.stringify(selectedAnswers)
     );
 
 
-    if (timeUp) {
+    // Open results page
 
-        alert(
-            `⏰ Time is up!\n\n` +
-            `Score: ${result.score}\n` +
-            `Correct: ${result.correct}\n` +
-            `Wrong: ${result.wrong}`
-        );
-
-    }
-
-    else {
-
-        alert(
-            `🎉 Quiz Submitted!\n\n` +
-            `Score: ${result.score}\n` +
-            `Correct: ${result.correct}\n` +
-            `Wrong: ${result.wrong}`
-        );
-
-    }
-
-
-    // For now return to levels page
     window.location.href =
-        "levels.html";
+        "results.html";
 
 }
 
+});
 
-// ==============================
-// START QUIZ
-// ==============================
+previousBtn.addEventListener("click", function() {
+
+    if (currentQuestion > 0) {
+
+        currentQuestion--;
+
+        loadQuestion();
+
+    }
+
+});
 
 loadQuestion();
