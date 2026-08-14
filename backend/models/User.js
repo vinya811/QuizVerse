@@ -21,7 +21,12 @@ const userSchema = new mongoose.Schema({
     dob: {
         type: String,
         required: true
+    },
+    leaderboardPoints: {
+        type: Number,
+        default: 0
     }
+
 }, {
     timestamps: true
 });

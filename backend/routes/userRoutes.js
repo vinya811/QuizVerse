@@ -4,8 +4,16 @@ const router = express.Router();
 const {
     getUserProfile,
     updateUserProfile,
-    deleteUser
+    deleteUser,
+    getLeaderboard,
+    updateLeaderboard
 } = require("../controllers/userController");
+
+// Get Leaderboard
+router.get("/leaderboard", getLeaderboard);
+
+// Update Leaderboard Score
+router.post("/leaderboard/update", updateLeaderboard);
 
 // Get User Profile
 router.get("/:email", getUserProfile);

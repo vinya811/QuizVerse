@@ -149,3 +149,20 @@ button.addEventListener("click", function () {
 });
 
 });
+
+// =========================
+// LEADERBOARD BUTTON
+// =========================
+
+const leaderboardButton =
+    document.getElementById("leaderboard-btn");
+
+leaderboardButton.addEventListener(
+    "click",
+    function () {
+
+        window.location.href =
+            "leaderboard.html";
+
+    }
+);
