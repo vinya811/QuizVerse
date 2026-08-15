@@ -6,7 +6,10 @@ const settingsButton = document.getElementById("settings-btn");
 
 const logoutButton = document.getElementById("logout-btn");
 
+
+// =========================
 // OPEN PROFILE MENU
+// =========================
 
 profile.addEventListener("click", function () {
 
@@ -15,7 +18,9 @@ profile.addEventListener("click", function () {
 });
 
 
+// =========================
 // SETTINGS
+// =========================
 
 settingsButton.addEventListener("click", function (event) {
 
@@ -26,25 +31,35 @@ settingsButton.addEventListener("click", function (event) {
 });
 
 
+// =========================
 // LOGOUT
+// =========================
 
 logoutButton.addEventListener("click", function (event) {
 
     event.stopPropagation();
 
     localStorage.removeItem("username");
+    localStorage.removeItem("email");
 
     window.location.href = "index2.html";
 
 });
 
-const username = document.getElementById("username");
 
-const quizCount = document.getElementById("quiz-count");
+const username =
+    document.getElementById("username");
 
-const quizList = document.getElementById("quiz-list");
+const quizCount =
+    document.getElementById("quiz-count");
 
+const quizList =
+    document.getElementById("quiz-list");
+
+
+// =========================
 // APPLY DARK MODE
+// =========================
 
 if (localStorage.getItem("darkMode") === "true") {
 
@@ -52,9 +67,13 @@ if (localStorage.getItem("darkMode") === "true") {
 
 }
 
-// GET USER
 
-const savedUsername = localStorage.getItem("username");
+// =========================
+// GET USER
+// =========================
+
+const savedUsername =
+    localStorage.getItem("username");
 
 if (savedUsername !== null) {
 
@@ -62,100 +81,118 @@ if (savedUsername !== null) {
 
 }
 
+
+// =========================
 // QUIZ DATA
+// =========================
 
 const quizzes = [
 
     {
-
         title: "JavaScript Basics",
 
-        description: "Test your JavaScript knowledge",
+        description:
+            "Test your JavaScript knowledge",
 
-        rating: "⭐ 4.5",
+        rating:
+            "⭐ 4.5",
 
-        subject: "javascript"
-
+        subject:
+            "javascript"
     },
 
     {
-
         title: "General Knowledge",
 
-        description: "Challenge your general knowledge",
+        description:
+            "Challenge your general knowledge",
 
-        rating: "⭐ 4.2",
+        rating:
+            "⭐ 4.2",
 
-        subject: "gk"
-
-    },
-
-    {
-
-        title: "Science Quiz",
-
-        description: "Explore the world of science",
-
-        rating: "⭐ 4.7",
-
-        subject: "science"
-
+        subject:
+            "gk"
     }
 
 ];
 
 
-quizCount.textContent =
+// =========================
+// QUIZ COUNT
+// =========================
 
+quizCount.textContent =
     `${quizzes.length} Quizzes`;
 
 
+// =========================
 // DISPLAY QUIZZES
+// =========================
 
 quizzes.forEach(function (quiz) {
 
+    const quizCard =
+        document.createElement("div");
 
-    const quizCard = document.createElement("div");
-
-    quizCard.classList.add("quiz-card");
+    quizCard.classList.add(
+        "quiz-card"
+    );
 
 
     quizCard.innerHTML = `
 
-<h3>${quiz.title}</h3>
+        <h3>
+            ${quiz.title}
+        </h3>
 
-<p>${quiz.description}</p>
+        <p>
+            ${quiz.description}
+        </p>
 
-<p>${quiz.rating}</p>
+        <p>
+            ${quiz.rating}
+        </p>
 
-<button class="start-btn">
+        <button class="start-btn">
+            Choose Level
+        </button>
 
-Choose Level
-
-</button>
-
-`;
+    `;
 
 
-    quizList.appendChild(quizCard);
+    quizList.appendChild(
+        quizCard
+    );
 
-    const button = quizCard.querySelector(".start-btn");
 
-button.addEventListener("click", function () {
+    const button =
+        quizCard.querySelector(
+            ".start-btn"
+        );
 
-    window.location.href =
-        `../updatedfrontend/levels.html?subject=${quiz.subject}`;
+
+    button.addEventListener(
+    "click",
+    function () {
+
+        window.location.href =
+            `levels.html?subject=${quiz.subject}`;
+
+    }
+);
 
 });
 
-});
 
 // =========================
 // LEADERBOARD BUTTON
 // =========================
 
 const leaderboardButton =
-    document.getElementById("leaderboard-btn");
+    document.getElementById(
+        "leaderboard-btn"
+    );
+
 
 leaderboardButton.addEventListener(
     "click",
