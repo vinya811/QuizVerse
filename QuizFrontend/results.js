@@ -408,5 +408,21 @@ if (leaderboardButton) {
 
         }
     );
+    // ==========================================
+// BACK TO DASHBOARD BUTTON
+// ==========================================
+
+const dashboardButton =
+    document.getElementById("dashboard-btn");
+
+dashboardButton.addEventListener(
+    "click",
+    function() {
+
+        window.location.href =
+            "index4.html";
+
+    }
+);
 
 }

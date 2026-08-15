@@ -208,23 +208,37 @@ main {
 
     align-items: center;
 
-    gap: 15px;
+    gap: 12px;
 
-    margin-top: 30px;
+    flex-wrap: wrap;
+
+    margin-top: 10px;
 }
 
 
-/* =========================
-   RESTART BUTTON
-========================= */
+.result-buttons button {
 
-#restart-btn {
-
-    padding: 15px 30px;
+    padding: 13px 22px;
 
     border: none;
 
-    border-radius: 12px;
+    border-radius: 10px;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+/* RESTART */
+
+#restart-btn {
 
     background:
         linear-gradient(
@@ -232,28 +246,56 @@ main {
             #536dfe,
             #6758f5
         );
-
-    color: white;
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: .3s;
 }
 
 
-#restart-btn:hover {
+/* LEADERBOARD */
+
+#leaderboard-btn {
+
+    background: #6758f5;
+}
+
+
+/* DASHBOARD */
+
+#dashboard-btn {
+
+    background: #667085;
+}
+
+
+/* HOVER */
+
+.result-buttons button:hover {
 
     transform: translateY(-2px);
 
     box-shadow:
-        0 8px 20px
-        rgba(83,109,254,.3);
+        0 6px 15px
+        rgba(0, 0, 0, 0.15);
 }
 
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .result-buttons {
+
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .result-buttons button {
+
+        width: 100%;
+
+        max-width: 280px;
+    }
+
+}
 
 /* =========================
    LEADERBOARD BUTTON
