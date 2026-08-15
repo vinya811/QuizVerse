@@ -17,6 +17,7 @@ console.log("SUBJECT FROM URL:", subject);
 const subjectTitle = document.getElementById("subject-title");
 const backButton = document.getElementById("back-btn");
 const playButtons = document.querySelectorAll(".play-btn");
+const themeToggle = document.getElementById("theme-toggle");
 
 
 // ==========================================
@@ -36,6 +37,56 @@ const subjects = {
 
 subjectTitle.textContent =
     subjects[subject] || "QuizVerse";
+
+
+// ==========================================
+// DARK MODE
+// ==========================================
+
+// Load saved theme
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "dark") {
+
+    document.body.classList.add("dark-mode");
+
+    if (themeToggle) {
+        themeToggle.textContent = "☀️";
+    }
+
+}
+
+
+// ==========================================
+// DARK MODE TOGGLE
+// ==========================================
+
+if (themeToggle) {
+
+    themeToggle.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark-mode");
+
+        const isDark =
+            document.body.classList.contains("dark-mode");
+
+        if (isDark) {
+
+            localStorage.setItem("theme", "dark");
+
+            this.textContent = "☀️";
+
+        } else {
+
+            localStorage.setItem("theme", "light");
+
+            this.textContent = "🌙";
+
+        }
+
+    });
+
+}
 
 
 // ==========================================

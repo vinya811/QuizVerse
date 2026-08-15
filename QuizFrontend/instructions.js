@@ -2,25 +2,120 @@
 // QuizVerse - Instructions Page
 // ==========================================
 
-// Get saved subject and level
-const subject = localStorage.getItem("subject");
-const level = localStorage.getItem("level");
+
+// ==========================================
+// GET SAVED SUBJECT AND LEVEL
+// ==========================================
+
+const subject =
+    localStorage.getItem("subject");
+
+const level =
+    localStorage.getItem("level");
 
 
 // ==========================================
 // ELEMENTS
 // ==========================================
 
-const subjectName = document.getElementById("subject-name");
-const levelName = document.getElementById("level-name");
+const subjectName =
+    document.getElementById("subject-name");
 
-const questionsText = document.getElementById("questions");
-const timeText = document.getElementById("time");
-const pointsText = document.getElementById("points");
+const levelName =
+    document.getElementById("level-name");
 
-const backButton = document.getElementById("back-btn");
-const backLevelButton = document.getElementById("back-level");
-const startButton = document.getElementById("start-btn");
+const questionsText =
+    document.getElementById("questions");
+
+const timeText =
+    document.getElementById("time");
+
+const pointsText =
+    document.getElementById("points");
+
+const backButton =
+    document.getElementById("back-btn");
+
+const backLevelButton =
+    document.getElementById("back-level");
+
+const startButton =
+    document.getElementById("start-btn");
+
+const themeToggle =
+    document.getElementById("theme-toggle");
+
+
+// ==========================================
+// DARK MODE
+// ==========================================
+
+// Get saved theme
+const savedTheme =
+    localStorage.getItem("theme");
+
+
+// Apply saved dark mode
+if (savedTheme === "dark") {
+
+    document.body.classList.add("dark-mode");
+
+    if (themeToggle) {
+
+        themeToggle.textContent = "☀️";
+
+    }
+
+}
+
+
+// ==========================================
+// DARK MODE TOGGLE
+// ==========================================
+
+if (themeToggle) {
+
+    themeToggle.addEventListener(
+        "click",
+        function () {
+
+            document.body.classList.toggle(
+                "dark-mode"
+            );
+
+
+            const isDark =
+                document.body.classList.contains(
+                    "dark-mode"
+                );
+
+
+            if (isDark) {
+
+                localStorage.setItem(
+                    "theme",
+                    "dark"
+                );
+
+                this.textContent = "☀️";
+
+            }
+
+            else {
+
+                localStorage.setItem(
+                    "theme",
+                    "light"
+                );
+
+                this.textContent = "🌙";
+
+            }
+
+        }
+    );
+
+}
 
 
 // ==========================================
@@ -28,10 +123,15 @@ const startButton = document.getElementById("start-btn");
 // ==========================================
 
 const subjects = {
+
     javascript: "JavaScript Basics",
+
     gk: "General Knowledge",
+
     science: "Science Quiz"
+
 };
+
 
 subjectName.textContent =
     subjects[subject] || "QuizVerse";
@@ -44,32 +144,53 @@ subjectName.textContent =
 const levelSettings = {
 
     easy: {
+
         name: "Easy Level",
+
         questions: 10,
+
         time: "5 Minutes",
+
         points: "+5"
+
     },
+
 
     medium: {
+
         name: "Medium Level",
+
         questions: 10,
+
         time: "10 Minutes",
+
         points: "+10"
+
     },
 
+
     hard: {
+
         name: "Hard Level",
+
         questions: 10,
+
         time: "15 Minutes",
+
         points: "+15"
+
     }
 
 };
 
 
-// Get current level
+// ==========================================
+// GET CURRENT LEVEL
+// ==========================================
+
 const currentLevel =
-    levelSettings[level] || levelSettings.easy;
+    levelSettings[level] ||
+    levelSettings.easy;
 
 
 // ==========================================
@@ -93,26 +214,36 @@ pointsText.textContent =
 // BACK TO LEVELS
 // ==========================================
 
-backButton.addEventListener("click", function () {
+backButton.addEventListener(
+    "click",
+    function () {
 
-    window.history.back();
+        window.history.back();
 
-});
+    }
+);
 
 
-backLevelButton.addEventListener("click", function () {
+backLevelButton.addEventListener(
+    "click",
+    function () {
 
-    window.history.back();
+        window.history.back();
 
-});
+    }
+);
 
 
 // ==========================================
 // START QUIZ
 // ==========================================
 
-startButton.addEventListener("click", function () {
+startButton.addEventListener(
+    "click",
+    function () {
 
-    window.location.href = "quiz.html";
+        window.location.href =
+            "quiz.html";
 
-});
+    }
+);

@@ -328,3 +328,68 @@ small {
         font-size: 14px;
     }
 }
+/* ==========================================
+   LANDING PAGE - DARK MODE
+========================================== */
+
+body.dark-mode {
+    background: #121212;
+}
+
+
+/* Logo */
+
+body.dark-mode .logo {
+    color: #ffffff;
+}
+
+
+/* Logo icon */
+
+body.dark-mode .logo-icon {
+    background: #242424;
+}
+
+
+/* Quiz icon */
+
+body.dark-mode .quiz-icon {
+    background: #242424;
+}
+
+
+/* Main heading */
+
+body.dark-mode .welcome-content h1 {
+    color: #ffffff;
+}
+
+
+/* Description */
+
+body.dark-mode .welcome-content p {
+    color: #cccccc;
+}
+
+
+/* Slide button */
+
+body.dark-mode .slide-button {
+    background: #242424;
+    color: #ffffff;
+}
+
+
+/* Slide circle */
+
+body.dark-mode .slide-circle {
+    background: #ffffff;
+    color: #121212;
+}
+
+
+/* Small text */
+
+body.dark-mode .welcome-content small {
+    color: #aaaaaa;
+}

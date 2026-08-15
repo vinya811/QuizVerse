@@ -5,66 +5,105 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Quiz Results | QuizVerse</title>
 
     <link rel="stylesheet" href="results.css">
 
+    <!-- GLOBAL DARK MODE -->
+    <link rel="stylesheet" href="darkmode.css">
+
 </head>
 
 <body>
 
+    <!-- ==============================
+         HEADER
+    =============================== -->
+
     <header>
 
         <div class="logo">
+
             🧩 QuizVerse
+
         </div>
 
     </header>
 
 
+    <!-- ==============================
+         MAIN
+    =============================== -->
+
     <main>
+
 
         <!-- RESULT SUMMARY -->
 
         <section class="result-card">
 
             <div class="result-icon">
+
                 🎉
+
             </div>
 
-            <h1>Quiz Completed!</h1>
+
+            <h1>
+
+                Quiz Completed!
+
+            </h1>
+
 
             <p class="result-message">
+
                 Great job! Here are your results.
+
             </p>
 
 
             <div class="score-circle">
 
                 <span id="score">
+
                     0/10
+
                 </span>
 
             </div>
 
 
             <h2 id="percentage">
+
                 0%
+
             </h2>
 
 
+            <!-- STATS -->
+
             <div class="stats">
+
 
                 <div class="stat-card">
 
                     <h3 id="correct-count">
+
                         0
+
                     </h3>
 
-                    <p>Correct</p>
+                    <p>
+
+                        Correct
+
+                    </p>
 
                 </div>
 
@@ -72,10 +111,16 @@
                 <div class="stat-card">
 
                     <h3 id="wrong-count">
+
                         0
+
                     </h3>
 
-                    <p>Wrong</p>
+                    <p>
+
+                        Wrong
+
+                    </p>
 
                 </div>
 
@@ -83,12 +128,19 @@
                 <div class="stat-card">
 
                     <h3 id="total-count">
+
                         10
+
                     </h3>
 
-                    <p>Total</p>
+                    <p>
+
+                        Total
+
+                    </p>
 
                 </div>
+
 
             </div>
 
@@ -97,30 +149,45 @@
 
             <div class="result-buttons">
 
-    <button id="restart-btn">
-        🔄 Restart Quiz
-    </button>
 
-    <button id="leaderboard-btn">
-        🏆 View Leaderboard
-    </button>
+                <button id="restart-btn">
 
-    <button id="dashboard-btn">
-        🏠 Back to Dashboard
-    </button>
+                    🔄 Restart Quiz
 
-</div>
+                </button>
+
+
+                <button id="leaderboard-btn">
+
+                    🏆 View Leaderboard
+
+                </button>
+
+
+                <button id="dashboard-btn">
+
+                    🏠 Back to Dashboard
+
+                </button>
+
+
+            </div>
 
         </section>
 
 
-        <!-- REVIEW SECTION -->
+        <!-- ==============================
+             REVIEW SECTION
+        =============================== -->
 
         <section class="review-section">
 
             <h2>
+
                 📋 Review Your Answers
+
             </h2>
+
 
             <div id="review-container">
 
@@ -128,11 +195,20 @@
 
         </section>
 
+
     </main>
 
 
+    <!-- EXISTING JAVASCRIPT -->
+
     <script src="questions.js"></script>
+
     <script src="results.js"></script>
+
+
+    <!-- GLOBAL DARK MODE -->
+
+    <script src="darkmode.js"></script>
 
 </body>
 

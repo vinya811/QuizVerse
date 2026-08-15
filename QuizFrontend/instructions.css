@@ -321,3 +321,130 @@ ul li {
         font-size: 22px;
     }
 }
+/* ==========================================
+   INSTRUCTIONS PAGE - DARK MODE
+========================================== */
+
+body.dark-mode {
+    background: #121212;
+    color: #ffffff;
+}
+
+
+/* ==============================
+   HEADER
+============================== */
+
+body.dark-mode header {
+    background: #1f1f1f;
+    color: #ffffff;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.35);
+}
+
+
+body.dark-mode .logo {
+    color: #ffffff;
+}
+
+
+/* Back button */
+
+body.dark-mode #back-btn {
+    background: #242424;
+    color: #ffffff;
+}
+
+
+body.dark-mode #back-btn:hover {
+    background: #6758f5;
+    color: #ffffff;
+}
+
+
+/* ==============================
+   INSTRUCTION CARD
+============================== */
+
+body.dark-mode .instruction-card {
+    background: #1f1f1f;
+    color: #ffffff;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+
+/* ==============================
+   HEADINGS
+============================== */
+
+body.dark-mode .instruction-card h1 {
+    color: #ffffff;
+}
+
+
+body.dark-mode .instruction-card h2 {
+    color: #9b8cff;
+}
+
+
+body.dark-mode .instruction-card h3 {
+    color: #ffffff;
+}
+
+
+/* ==============================
+   ICON
+============================== */
+
+body.dark-mode .icon {
+    background: #2a2a2a;
+}
+
+
+/* ==============================
+   INSTRUCTION LIST
+============================== */
+
+body.dark-mode .instruction-card li {
+    color: #dddddd;
+}
+
+
+/* ==============================
+   GOOD LUCK
+============================== */
+
+body.dark-mode .goodluck {
+    color: #ffffff;
+}
+
+
+/* ==============================
+   BUTTONS
+============================== */
+
+body.dark-mode .buttons button {
+    color: #ffffff;
+}
+
+
+/* Back button */
+
+body.dark-mode #back-level {
+    background: #2a2a2a;
+}
+
+
+body.dark-mode #back-level:hover {
+    background: #3a3a3a;
+}
+
+
+/* Start button */
+
+body.dark-mode #start-btn {
+    color: #ffffff;
+}

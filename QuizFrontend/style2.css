@@ -215,3 +215,90 @@ body {
         padding: 14px;
     }
 }
+/* ==========================================
+   LOGIN PAGE - DARK MODE
+========================================== */
+
+body.dark-mode {
+    background: #121212;
+}
+
+
+/* Login card */
+
+body.dark-mode .login-card {
+    background: #1f1f1f;
+    color: #ffffff;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+
+/* Heading */
+
+body.dark-mode .login-card h1 {
+    color: #ffffff;
+}
+
+
+/* Description */
+
+body.dark-mode .login-card > p {
+    color: #cccccc;
+}
+
+
+/* Inputs */
+
+body.dark-mode .login-card input {
+    background: #2a2a2a;
+    color: #ffffff;
+
+    border-color: #555555;
+}
+
+
+/* Input placeholder */
+
+body.dark-mode .login-card input::placeholder {
+    color: #aaaaaa;
+}
+
+
+/* Input focus */
+
+body.dark-mode .login-card input:focus {
+    border-color: #8b7cf6;
+
+    box-shadow:
+        0 0 8px rgba(139, 124, 246, 0.3);
+}
+
+
+/* Login button */
+
+body.dark-mode .login-btn {
+    color: #ffffff;
+}
+
+
+/* Signup text */
+
+body.dark-mode .signup-text {
+    color: #cccccc;
+}
+
+
+/* Signup link */
+
+body.dark-mode #signup-link {
+    color: #9b8cff;
+}
+
+
+/* Error message */
+
+body.dark-mode #login-error {
+    color: #ff8080;
+}

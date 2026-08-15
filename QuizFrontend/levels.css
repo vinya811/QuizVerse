@@ -443,3 +443,117 @@ main {
         font-size: 15px;
     }
 }
+/* ==========================================
+   LEVELS PAGE - DARK MODE
+========================================== */
+
+body.dark-mode {
+    background: #121212;
+    color: #ffffff;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+body.dark-mode header {
+    background: #1f1f1f;
+    color: #ffffff;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Logo */
+
+body.dark-mode .logo {
+    color: #ffffff;
+}
+
+
+/* Back button */
+
+body.dark-mode #back-btn {
+    background: #242424;
+    color: #ffffff;
+}
+
+
+/* Back button hover */
+
+body.dark-mode #back-btn:hover {
+    background: #6758f5;
+    color: #ffffff;
+}
+
+
+/* ==========================================
+   HEADING
+========================================== */
+
+body.dark-mode .page-heading h1 {
+    color: #ffffff;
+}
+
+
+body.dark-mode .subtitle {
+    color: #cccccc;
+}
+
+
+/* ==========================================
+   LEVEL CARDS
+========================================== */
+
+body.dark-mode .level-card {
+    background: #242424;
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Card headings */
+
+body.dark-mode .level-card h2 {
+    color: #ffffff;
+}
+
+
+/* Card description */
+
+body.dark-mode .level-desc {
+    color: #cccccc;
+}
+
+
+/* Card list */
+
+body.dark-mode .level-card li {
+    color: #dddddd;
+}
+
+
+/* ==========================================
+   PLAY BUTTON
+========================================== */
+
+body.dark-mode .play-btn {
+    color: #ffffff;
+}
+
+
+/* ==========================================
+   DARK MODE TRANSITIONS
+========================================== */
+
+body.dark-mode .level-card,
+body.dark-mode #back-btn,
+body.dark-mode header {
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;

@@ -365,3 +365,155 @@ main {
         font-size: 14px;
     }
 }
+/* ==========================================
+   QUIZ PAGE - DARK MODE
+========================================== */
+
+body.dark-mode {
+    background: #121212;
+    color: #ffffff;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+body.dark-mode header {
+    background: #1f1f1f;
+    color: #ffffff;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.35);
+}
+
+
+body.dark-mode .logo {
+    color: #ffffff;
+}
+
+
+/* Timer */
+
+body.dark-mode .timer {
+    background: #242424;
+    color: #ffffff;
+}
+
+
+/* ==========================================
+   QUIZ TITLE
+========================================== */
+
+body.dark-mode main > h1 {
+    color: #ffffff;
+}
+
+
+body.dark-mode #difficulty {
+    color: #bbbbbb;
+}
+
+
+/* ==========================================
+   INFO CARDS
+========================================== */
+
+body.dark-mode .info-card {
+    background: #242424;
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+
+body.dark-mode .info-card h2 {
+    color: #ffffff;
+}
+
+
+body.dark-mode .info-card p {
+    color: #bbbbbb;
+}
+
+
+/* ==========================================
+   PROGRESS BAR
+========================================== */
+
+body.dark-mode .progress {
+    background: #333333;
+}
+
+
+/* ==========================================
+   QUESTION BOX
+========================================== */
+
+body.dark-mode .question-box {
+    background: #1f1f1f;
+    color: #ffffff;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+
+body.dark-mode .question-box h2 {
+    color: #9b8cff;
+}
+
+
+body.dark-mode .question-box h3 {
+    color: #ffffff;
+}
+
+
+/* ==========================================
+   ANSWER OPTIONS
+========================================== */
+
+body.dark-mode .option {
+    background: #2a2a2a;
+    color: #ffffff;
+
+    border-color: #444444;
+}
+
+
+body.dark-mode .option:hover {
+    background: #333333;
+    border-color: #6758f5;
+}
+
+
+body.dark-mode .option.selected {
+    background: #6758f5;
+    color: #ffffff;
+    border-color: #6758f5;
+}
+
+
+/* ==========================================
+   NAVIGATION BUTTONS
+========================================== */
+
+body.dark-mode .buttons button {
+    color: #ffffff;
+}
+
+
+body.dark-mode #previousBtn {
+    background: #2a2a2a;
+}
+
+
+body.dark-mode #previousBtn:hover {
+    background: #3a3a3a;
+}
+
+
+body.dark-mode #nextBtn {
+    color: #ffffff;
+}

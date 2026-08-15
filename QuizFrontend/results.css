@@ -513,3 +513,164 @@ main {
     }
 
 }
+/* ==========================================
+   RESULTS PAGE - DARK MODE
+========================================== */
+
+body.dark-mode {
+    background: #121212;
+    color: #ffffff;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+body.dark-mode header {
+    background: #1f1f1f;
+    color: #ffffff;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.35);
+}
+
+
+body.dark-mode .logo {
+    color: #ffffff;
+}
+
+
+/* ==========================================
+   RESULT CARD
+========================================== */
+
+body.dark-mode .result-card {
+    background: #1f1f1f;
+    color: #ffffff;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+
+/* Heading */
+
+body.dark-mode .result-card h1 {
+    color: #ffffff;
+}
+
+
+/* Result message */
+
+body.dark-mode .result-message {
+    color: #cccccc;
+}
+
+
+/* ==========================================
+   SCORE
+========================================== */
+
+body.dark-mode .score-circle {
+    background: #242424;
+    color: #ffffff;
+
+    border-color: #6758f5;
+}
+
+
+body.dark-mode #score {
+    color: #ffffff;
+}
+
+
+body.dark-mode #percentage {
+    color: #9b8cff;
+}
+
+
+/* ==========================================
+   STAT CARDS
+========================================== */
+
+body.dark-mode .stat-card {
+    background: #242424;
+    color: #ffffff;
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+
+body.dark-mode .stat-card h3 {
+    color: #ffffff;
+}
+
+
+body.dark-mode .stat-card p {
+    color: #bbbbbb;
+}
+
+
+/* ==========================================
+   RESULT BUTTONS
+========================================== */
+
+body.dark-mode .result-buttons button {
+    color: #ffffff;
+}
+
+
+/* ==========================================
+   REVIEW SECTION
+========================================== */
+
+body.dark-mode .review-section {
+    background: #1f1f1f;
+    color: #ffffff;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+
+body.dark-mode .review-section h2 {
+    color: #ffffff;
+}
+
+
+/* ==========================================
+   REVIEW ITEMS
+========================================== */
+
+body.dark-mode .review-item {
+    background: #242424;
+    color: #ffffff;
+
+    border-color: #444444;
+}
+
+
+body.dark-mode .review-item h3 {
+    color: #ffffff;
+}
+
+
+body.dark-mode .review-item p {
+    color: #cccccc;
+}
+
+
+/* Correct answer */
+
+body.dark-mode .correct {
+    color: #6ee7a0;
+}
+
+
+/* Wrong answer */
+
+body.dark-mode .wrong {
+    color: #ff8080;
+}

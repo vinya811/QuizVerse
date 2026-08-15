@@ -510,3 +510,158 @@ body.dark-mode p {
     }
 
 }
+/* ==========================================
+   HOME PAGE - DARK MODE
+========================================== */
+
+body.dark-mode {
+    background: #121212;
+    color: #ffffff;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+body.dark-mode header {
+    background: #1f1f1f;
+    color: #ffffff;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Logo */
+
+body.dark-mode .logo {
+    color: #ffffff;
+}
+
+
+/* Profile */
+
+body.dark-mode .profile {
+    color: #ffffff;
+}
+
+
+/* ==========================================
+   PROFILE MENU
+========================================== */
+
+body.dark-mode .profile-menu {
+    background: #242424;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.45);
+}
+
+
+/* Profile menu buttons */
+
+body.dark-mode .profile-menu button {
+    background: transparent;
+    color: #ffffff;
+}
+
+
+/* Profile menu hover */
+
+body.dark-mode .profile-menu button:hover {
+    background: #333333;
+}
+
+
+/* ==========================================
+   HERO
+========================================== */
+
+body.dark-mode .hero h1 {
+    color: #ffffff;
+}
+
+
+body.dark-mode .hero p {
+    color: #cccccc;
+}
+
+
+/* ==========================================
+   LEADERBOARD
+========================================== */
+
+body.dark-mode .leaderboard-card {
+    background: #242424;
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+
+body.dark-mode .leaderboard-content h2 {
+    color: #ffffff;
+}
+
+
+body.dark-mode .leaderboard-content p {
+    color: #cccccc;
+}
+
+
+/* Leaderboard button */
+
+body.dark-mode #leaderboard-btn {
+    color: #ffffff;
+}
+
+
+/* ==========================================
+   QUIZ SECTION
+========================================== */
+
+body.dark-mode .section-heading h2 {
+    color: #ffffff;
+}
+
+
+body.dark-mode #quiz-count {
+    color: #bbbbbb;
+}
+
+
+/* ==========================================
+   QUIZ CARDS
+========================================== */
+
+body.dark-mode .quiz-card {
+    background: #242424;
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Quiz card text */
+
+body.dark-mode .quiz-card h3,
+body.dark-mode .quiz-card h2 {
+    color: #ffffff;
+}
+
+
+body.dark-mode .quiz-card p {
+    color: #cccccc;
+}
+
+
+/* ==========================================
+   COMMON BUTTONS
+========================================== */
+
+body.dark-mode button {
+    color: #ffffff;
+}

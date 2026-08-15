@@ -140,3 +140,106 @@ body {
         font-size: 14px;
     }
 }
+/* ==========================================
+   SIGNUP PAGE - DARK MODE
+========================================== */
+
+body.dark-mode {
+    background: #121212;
+}
+
+
+/* Signup card */
+
+body.dark-mode .signup-card {
+    background: #1f1f1f;
+    color: #ffffff;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+
+/* Heading */
+
+body.dark-mode .signup-card h1 {
+    color: #ffffff;
+}
+
+
+/* Description */
+
+body.dark-mode .signup-card > p {
+    color: #cccccc;
+}
+
+
+/* Inputs */
+
+body.dark-mode .signup-card input {
+    background: #2a2a2a;
+    color: #ffffff;
+
+    border-color: #555555;
+}
+
+
+/* Placeholder */
+
+body.dark-mode .signup-card input::placeholder {
+    color: #aaaaaa;
+}
+
+
+/* Date input */
+
+body.dark-mode .signup-card input[type="date"] {
+    color-scheme: dark;
+}
+
+
+/* Input focus */
+
+body.dark-mode .signup-card input:focus {
+    border-color: #8b7cf6;
+
+    box-shadow:
+        0 0 8px rgba(139, 124, 246, 0.3);
+}
+
+
+/* Date of Birth label */
+
+body.dark-mode .signup-card label {
+    color: #ffffff;
+}
+
+
+/* Back button */
+
+body.dark-mode .back-btn {
+    background: #2a2a2a;
+    color: #ffffff;
+}
+
+
+/* Back button hover */
+
+body.dark-mode .back-btn:hover {
+    background: #6758f5;
+    color: #ffffff;
+}
+
+
+/* Register button */
+
+body.dark-mode .register-btn {
+    color: #ffffff;
+}
+
+
+/* Error / success message */
+
+body.dark-mode #error-message {
+    color: #ff8080;
+}

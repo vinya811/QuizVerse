@@ -2,55 +2,87 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>QuizVerse Quiz</title>
 
     <link rel="stylesheet" href="quiz.css">
+
+    <!-- GLOBAL DARK MODE -->
+    <link rel="stylesheet" href="darkmode.css">
+
 </head>
 
 <body>
 
-    <!-- HEADER -->
+    <!-- ==============================
+         HEADER
+    =============================== -->
 
     <header>
 
         <div class="logo">
+
             🧩 QuizVerse
+
         </div>
 
+
         <div class="timer">
+
             ⏰ <span id="timer">5:00</span>
+
         </div>
 
     </header>
 
 
-    <!-- MAIN -->
+    <!-- ==============================
+         MAIN
+    =============================== -->
 
     <main>
 
         <h1 id="subject">
+
             Loading Quiz...
+
         </h1>
 
+
         <p id="difficulty">
+
             Loading...
+
         </p>
 
 
-        <!-- INFO CARDS -->
+        <!-- ==============================
+             INFO CARDS
+        =============================== -->
 
         <div class="info-container">
+
 
             <div class="info-card">
 
                 <h2 id="totalQuestions">
+
                     10
+
                 </h2>
 
-                <p>Questions</p>
+                <p>
+
+                    Questions
+
+                </p>
 
             </div>
 
@@ -58,10 +90,16 @@
             <div class="info-card">
 
                 <h2 id="timeLimit">
+
                     5 Min
+
                 </h2>
 
-                <p>Time</p>
+                <p>
+
+                    Time
+
+                </p>
 
             </div>
 
@@ -69,10 +107,16 @@
             <div class="info-card">
 
                 <h2 id="points">
+
                     +5
+
                 </h2>
 
-                <p>Points</p>
+                <p>
+
+                    Points
+
+                </p>
 
             </div>
 
@@ -80,17 +124,26 @@
             <div class="info-card">
 
                 <h2 id="progressText">
+
                     1 / 10
+
                 </h2>
 
-                <p>Progress</p>
+                <p>
+
+                    Progress
+
+                </p>
 
             </div>
+
 
         </div>
 
 
-        <!-- PROGRESS BAR -->
+        <!-- ==============================
+             PROGRESS BAR
+        =============================== -->
 
         <div class="progress">
 
@@ -102,34 +155,50 @@
         </div>
 
 
-        <!-- QUESTION -->
+        <!-- ==============================
+             QUESTION
+        =============================== -->
 
         <div class="question-box">
 
             <h2 id="questionNumber">
+
                 Question 1
+
             </h2>
 
+
             <h3 id="questionText">
+
                 Loading Question...
+
             </h3>
 
+
             <div id="options">
+
             </div>
 
         </div>
 
 
-        <!-- BUTTONS -->
+        <!-- ==============================
+             BUTTONS
+        =============================== -->
 
         <div class="buttons">
 
             <button id="previousBtn">
+
                 ← Previous
+
             </button>
 
+
             <button id="nextBtn">
+
                 Next →
+
             </button>
 
         </div>
@@ -137,8 +206,16 @@
     </main>
 
 
+    <!-- EXISTING QUIZ JAVASCRIPT -->
+
     <script src="questions.js"></script>
+
     <script src="quiz.js"></script>
+
+
+    <!-- GLOBAL DARK MODE -->
+
+    <script src="darkmode.js"></script>
 
 </body>
 

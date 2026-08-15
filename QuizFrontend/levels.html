@@ -2,160 +2,295 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Choose Difficulty | QuizVerse</title>
 
     <link rel="stylesheet" href="levels.css">
 
+    <!-- GLOBAL DARK MODE -->
+    <link rel="stylesheet" href="darkmode.css">
+
+
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet"
     >
+
 </head>
 
 <body>
 
-    <!-- HEADER -->
+
+    <!-- ==============================
+         HEADER
+    =============================== -->
+
     <header>
 
         <button id="back-btn">
+
             ← Back
+
         </button>
+
 
         <div class="logo">
 
-            <span class="logo-icon">🧩</span>
+            <span class="logo-icon">
 
-            <span>QuizVerse</span>
+                🧩
+
+            </span>
+
+
+            <span>
+
+                QuizVerse
+
+            </span>
 
         </div>
 
     </header>
 
 
-    <!-- MAIN -->
+    <!-- ==============================
+         MAIN
+    =============================== -->
+
     <main>
+
 
         <div class="page-heading">
 
             <h1 id="subject-title">
+
                 JavaScript Basics
+
             </h1>
 
+
             <p class="subtitle">
+
                 Choose a difficulty level and start your learning journey.
+
             </p>
 
         </div>
 
 
-        <!-- LEVEL CARDS -->
+        <!-- ==============================
+             LEVEL CARDS
+        =============================== -->
+
         <section class="levels-container">
 
 
             <!-- EASY -->
+
             <div class="level-card easy">
 
                 <div class="level-icon">
+
                     🟢
+
                 </div>
 
+
                 <h2>
+
                     Easy
+
                 </h2>
 
+
                 <p class="level-desc">
+
                     Perfect for beginners.
+
                 </p>
+
 
                 <ul>
 
-                    <li>📚 10 Questions</li>
+                    <li>
 
-                    <li>⏰ 5 Minutes</li>
+                        📚 10 Questions
 
-                    <li>🏆 +5 Points</li>
+                    </li>
+
+
+                    <li>
+
+                        ⏰ 5 Minutes
+
+                    </li>
+
+
+                    <li>
+
+                        🏆 +5 Points
+
+                    </li>
 
                 </ul>
 
-                <button class="play-btn" data-level="easy">
+
+                <button
+                    class="play-btn"
+                    data-level="easy"
+                >
+
                     Start quiz
+
                 </button>
 
             </div>
 
 
             <!-- MEDIUM -->
+
             <div class="level-card medium">
 
                 <div class="level-icon">
+
                     🟠
+
                 </div>
 
+
                 <h2>
+
                     Medium
+
                 </h2>
 
+
                 <p class="level-desc">
+
                     Challenge yourself.
+
                 </p>
+
 
                 <ul>
 
-                    <li>📚 10 Questions</li>
+                    <li>
 
-                    <li>⏰ 10 Minutes</li>
+                        📚 10 Questions
 
-                    <li>🏆 +10 Points</li>
+                    </li>
+
+
+                    <li>
+
+                        ⏰ 10 Minutes
+
+                    </li>
+
+
+                    <li>
+
+                        🏆 +10 Points
+
+                    </li>
 
                 </ul>
 
-                <button class="play-btn" data-level="medium">
+
+                <button
+                    class="play-btn"
+                    data-level="medium"
+                >
+
                     Start quiz
+
                 </button>
 
             </div>
 
 
             <!-- HARD -->
+
             <div class="level-card hard">
 
                 <div class="level-icon">
+
                     🔴
+
                 </div>
 
+
                 <h2>
+
                     Hard
+
                 </h2>
 
+
                 <p class="level-desc">
+
                     For quiz masters.
+
                 </p>
+
 
                 <ul>
 
-                    <li>📚 10 Questions</li>
+                    <li>
 
-                    <li>⏰ 15 Minutes</li>
+                        📚 10 Questions
 
-                    <li>🏆 +15 Points</li>
+                    </li>
+
+
+                    <li>
+
+                        ⏰ 15 Minutes
+
+                    </li>
+
+
+                    <li>
+
+                        🏆 +15 Points
+
+                    </li>
 
                 </ul>
 
-                <button class="play-btn" data-level="hard">
+
+                <button
+                    class="play-btn"
+                    data-level="hard"
+                >
+
                     Start quiz
+
                 </button>
 
             </div>
+
 
         </section>
 
     </main>
 
 
+    <!-- EXISTING LEVELS JAVASCRIPT -->
+
     <script src="levels.js"></script>
+
+    <!-- GLOBAL DARK MODE -->
+
+    <script src="darkmode.js"></script>
 
 </body>
 

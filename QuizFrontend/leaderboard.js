@@ -3,15 +3,92 @@
 // ==========================================
 
 
+// ==========================================
+// DARK MODE
+// ==========================================
+
+const themeToggle =
+    document.getElementById("theme-toggle");
+
+
+// Load saved theme
+const savedTheme =
+    localStorage.getItem("theme");
+
+
+if (savedTheme === "dark") {
+
+    document.body.classList.add("dark-mode");
+
+    if (themeToggle) {
+        themeToggle.textContent = "☀️";
+    }
+
+}
+
+
+// Toggle dark mode
+if (themeToggle) {
+
+    themeToggle.addEventListener(
+        "click",
+        function() {
+
+            document.body.classList.toggle(
+                "dark-mode"
+            );
+
+
+            const isDark =
+                document.body.classList.contains(
+                    "dark-mode"
+                );
+
+
+            if (isDark) {
+
+                localStorage.setItem(
+                    "theme",
+                    "dark"
+                );
+
+                this.textContent = "☀️";
+
+            }
+
+            else {
+
+                localStorage.setItem(
+                    "theme",
+                    "light"
+                );
+
+                this.textContent = "🌙";
+
+            }
+
+        }
+    );
+
+}
+
+
+// ==========================================
 // GET LEADERBOARD DATA
+// ==========================================
 
 async function loadLeaderboard() {
 
     const leaderboardList =
-        document.getElementById("leaderboard-list");
+        document.getElementById(
+            "leaderboard-list"
+        );
+
 
     const topThree =
-        document.getElementById("top-three");
+        document.getElementById(
+            "top-three"
+        );
 
 
     try {
@@ -21,7 +98,8 @@ async function loadLeaderboard() {
         );
 
 
-        const data = await response.json();
+        const data =
+            await response.json();
 
 
         console.log(
@@ -39,26 +117,32 @@ async function loadLeaderboard() {
         }
 
 
+        // ==========================================
         // SORT BY POINTS
+        // ==========================================
 
         data.sort(function(a, b) {
 
-            return b.leaderboardPoints -
-                   a.leaderboardPoints;
+            return (
+                b.leaderboardPoints -
+                a.leaderboardPoints
+            );
 
         });
 
 
+        // ==========================================
         // CLEAR LOADING
+        // ==========================================
 
         leaderboardList.innerHTML = "";
 
         topThree.innerHTML = "";
 
 
-        // ==============================
+        // ==========================================
         // TOP THREE
-        // ==============================
+        // ==========================================
 
         const medals = [
             "🥇",
@@ -74,51 +158,60 @@ async function loadLeaderboard() {
         ];
 
 
-        data.slice(0, 3).forEach(
-            function(player, index) {
+        data
+            .slice(0, 3)
+            .forEach(
+                function(player, index) {
 
-                const card =
-                    document.createElement("div");
-
-
-                card.classList.add(
-                    "top-player",
-                    classes[index]
-                );
+                    const card =
+                        document.createElement(
+                            "div"
+                        );
 
 
-                card.innerHTML = `
-
-                    <div class="rank-medal">
-                        ${medals[index]}
-                    </div>
-
-                    <h3>
-                        ${player.username}
-                    </h3>
-
-                    <p>
-                        ${player.leaderboardPoints} Points
-                    </p>
-
-                `;
+                    card.classList.add(
+                        "top-player",
+                        classes[index]
+                    );
 
 
-                topThree.appendChild(card);
+                    card.innerHTML = `
 
-            }
-        );
+                        <div class="rank-medal">
+                            ${medals[index]}
+                        </div>
+
+                        <h3>
+                            ${player.username}
+                        </h3>
+
+                        <p>
+                            ${player.leaderboardPoints}
+                            Points
+                        </p>
+
+                    `;
 
 
-        // ==============================
+                    topThree.appendChild(
+                        card
+                    );
+
+                }
+            );
+
+
+        // ==========================================
         // COMPLETE LEADERBOARD
-        // ==============================
+        // ==========================================
 
         data.forEach(
             function(player, index) {
 
                 const row =
-                    document.createElement("div");
+                    document.createElement(
+                        "div"
+                    );
 
 
                 row.classList.add(
@@ -166,13 +259,15 @@ async function loadLeaderboard() {
                 `;
 
 
-                leaderboardList.appendChild(row);
+                leaderboardList.appendChild(
+                    row
+                );
 
             }
         );
 
-
     }
+
 
     catch (error) {
 

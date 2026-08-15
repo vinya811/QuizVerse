@@ -418,3 +418,160 @@ main {
     }
 
 }
+/* ==========================================
+   LEADERBOARD - DARK MODE
+========================================== */
+
+body.dark-mode {
+    background: #121212;
+    color: #ffffff;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+body.dark-mode header {
+    background: #1f1f1f;
+    color: #ffffff;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.35);
+}
+
+
+body.dark-mode .logo {
+    color: #ffffff;
+}
+
+
+/* Back button */
+
+body.dark-mode #back-btn {
+    background: #242424;
+    color: #ffffff;
+}
+
+
+body.dark-mode #back-btn:hover {
+    background: #6758f5;
+    color: #ffffff;
+}
+
+
+/* ==========================================
+   MAIN CONTAINER
+========================================== */
+
+body.dark-mode .leaderboard-container {
+    color: #ffffff;
+}
+
+
+/* ==========================================
+   TITLE
+========================================== */
+
+body.dark-mode .leaderboard-title h1 {
+    color: #ffffff;
+}
+
+
+body.dark-mode .leaderboard-title p {
+    color: #cccccc;
+}
+
+
+/* Trophy */
+
+body.dark-mode .trophy {
+    background: #242424;
+}
+
+
+/* ==========================================
+   TOP THREE PLAYERS
+========================================== */
+
+body.dark-mode .top-player {
+    background: #242424;
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+
+body.dark-mode .top-player h3 {
+    color: #ffffff;
+}
+
+
+body.dark-mode .top-player p {
+    color: #cccccc;
+}
+
+
+/* ==========================================
+   LEADERBOARD LIST
+========================================== */
+
+body.dark-mode .leaderboard-list {
+    background: #1f1f1f;
+    color: #ffffff;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+
+/* List header */
+
+body.dark-mode .list-header {
+    background: #2a2a2a;
+    color: #ffffff;
+}
+
+
+/* Player rows */
+
+body.dark-mode .player-row {
+    background: #242424;
+    color: #ffffff;
+
+    border-color: #3a3a3a;
+}
+
+
+body.dark-mode .player-row:hover {
+    background: #2d2d2d;
+}
+
+
+/* Player name */
+
+body.dark-mode .player-name {
+    color: #ffffff;
+}
+
+
+/* Points */
+
+body.dark-mode .points {
+    color: #9b8cff;
+}
+
+
+/* Rank */
+
+body.dark-mode .rank {
+    color: #ffffff;
+}
+
+
+/* Loading */
+
+body.dark-mode .loading {
+    color: #bbbbbb;
+}

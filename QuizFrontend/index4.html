@@ -5,16 +5,26 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>QuizVerse Home</title>
 
     <link rel="stylesheet" href="style4.css">
 
+    <!-- GLOBAL DARK MODE -->
+    <link rel="stylesheet" href="darkmode.css">
+
 </head>
 
 <body>
 
+
+    <!-- ==============================
+         HEADER
+    =============================== -->
 
     <header>
 
@@ -24,42 +34,56 @@
 
         </div>
 
-        <div class="profile" id="profile">
 
-    👤
+        <div
+            class="profile"
+            id="profile"
+        >
 
-    <span id="username">
+            👤
 
-        User
+            <span id="username">
 
-    </span>
+                User
 
-
-    <div class="profile-menu" id="profile-menu">
-
-        <button id="settings-btn">
-
-            ⚙ Settings
-
-        </button>
+            </span>
 
 
-        <button id="logout-btn">
+            <!-- PROFILE MENU -->
 
-            🚪 Logout
+            <div
+                class="profile-menu"
+                id="profile-menu"
+            >
 
-        </button>
+                <button id="settings-btn">
 
-    </div>
+                    ⚙ Settings
 
-</div>
-        
+                </button>
+
+
+                <button id="logout-btn">
+
+                    🚪 Logout
+
+                </button>
+
+            </div>
+
+        </div>
 
     </header>
 
 
+    <!-- ==============================
+         MAIN
+    =============================== -->
+
     <main>
 
+
+        <!-- HERO -->
 
         <section class="hero">
 
@@ -80,36 +104,54 @@
 
         </section>
 
-        <!-- LEADERBOARD -->
 
-<section class="leaderboard-section">
+        <!-- ==============================
+             LEADERBOARD
+        =============================== -->
 
-    <div class="leaderboard-card">
+        <section class="leaderboard-section">
 
-        <div class="leaderboard-icon">
-            🏆
-        </div>
+            <div class="leaderboard-card">
 
-        <div class="leaderboard-content">
+                <div class="leaderboard-icon">
 
-            <h2>
-                QuizVerse Leaderboard
-            </h2>
+                    🏆
 
-            <p>
-                See who's leading the quiz challenge!
-            </p>
+                </div>
 
-        </div>
 
-        <button id="leaderboard-btn">
-            View Leaderboard →
-        </button>
+                <div class="leaderboard-content">
 
-    </div>
+                    <h2>
 
-</section>
+                        QuizVerse Leaderboard
 
+                    </h2>
+
+
+                    <p>
+
+                        See who's leading the quiz challenge!
+
+                    </p>
+
+                </div>
+
+
+                <button id="leaderboard-btn">
+
+                    View Leaderboard →
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             QUIZZES
+        =============================== -->
 
         <section class="quiz-section">
 
@@ -143,7 +185,13 @@
     </main>
 
 
+    <!-- EXISTING HOME JAVASCRIPT -->
+
     <script src="script4.js"></script>
+
+    <!-- GLOBAL DARK MODE -->
+
+    <script src="darkmode.js"></script>
 
 </body>
 

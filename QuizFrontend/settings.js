@@ -41,68 +41,6 @@ if (!email) {
 
 
 // ==============================
-// LOAD USER PROFILE
-// ==============================
-
-async function loadUserProfile() {
-
-    try {
-
-        const response = await fetch(
-            `https://quizverse-backend-si7g.onrender.com/api/user/${encodeURIComponent(email)}`
-        );
-
-        const data = await response.json();
-
-        if (!response.ok) {
-
-            message.style.color = "red";
-
-            message.textContent =
-                "❌ " + data.message;
-
-            return;
-
-        }
-
-        usernameInput.value =
-            data.username || "";
-
-        phoneInput.value =
-            data.phone || "";
-
-        // Keep username updated locally
-
-        localStorage.setItem(
-            "username",
-            data.username
-        );
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "PROFILE LOAD ERROR:",
-            error
-        );
-
-        message.style.color = "red";
-
-        message.textContent =
-            "❌ Cannot connect to server";
-
-    }
-
-}
-
-
-// Load profile
-
-loadUserProfile();
-
-
-// ==============================
 // DARK MODE
 // ==============================
 
@@ -110,6 +48,7 @@ function loadTheme() {
 
     const darkMode =
         localStorage.getItem("darkMode") === "true";
+
 
     if (darkMode) {
 
@@ -132,7 +71,7 @@ function loadTheme() {
 }
 
 
-// Load saved theme
+// Load saved theme immediately
 
 loadTheme();
 
@@ -149,15 +88,20 @@ themeButton.addEventListener(
             "dark-mode"
         );
 
+
         const darkMode =
             document.body.classList.contains(
                 "dark-mode"
             );
 
+
+        // Save theme globally
+
         localStorage.setItem(
             "darkMode",
             darkMode
         );
+
 
         if (darkMode) {
 
@@ -178,6 +122,78 @@ themeButton.addEventListener(
 
 
 // ==============================
+// LOAD USER PROFILE
+// ==============================
+
+async function loadUserProfile() {
+
+    try {
+
+        const response = await fetch(
+            `https://quizverse-backend-si7g.onrender.com/api/user/${encodeURIComponent(email)}`
+        );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            message.style.color =
+                "red";
+
+            message.textContent =
+                "❌ " + data.message;
+
+            return;
+
+        }
+
+
+        usernameInput.value =
+            data.username || "";
+
+
+        phoneInput.value =
+            data.phone || "";
+
+
+        // Keep username updated locally
+
+        localStorage.setItem(
+            "username",
+            data.username
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "PROFILE LOAD ERROR:",
+            error
+        );
+
+
+        message.style.color =
+            "red";
+
+
+        message.textContent =
+            "❌ Cannot connect to server";
+
+    }
+
+}
+
+
+// Load profile
+
+loadUserProfile();
+
+
+// ==============================
 // SAVE CHANGES
 // ==============================
 
@@ -188,6 +204,7 @@ saveButton.addEventListener(
         const newUsername =
             usernameInput.value.trim();
 
+
         const newPhone =
             phoneInput.value.trim();
 
@@ -196,10 +213,13 @@ saveButton.addEventListener(
 
         if (newUsername === "") {
 
-            message.style.color = "red";
+            message.style.color =
+                "red";
+
 
             message.textContent =
                 "⚠️ Please enter a username";
+
 
             return;
 
@@ -210,10 +230,13 @@ saveButton.addEventListener(
 
         if (newPhone === "") {
 
-            message.style.color = "red";
+            message.style.color =
+                "red";
+
 
             message.textContent =
                 "⚠️ Please enter a phone number";
+
 
             return;
 
@@ -222,7 +245,9 @@ saveButton.addEventListener(
 
         try {
 
-            saveButton.disabled = true;
+            saveButton.disabled =
+                true;
+
 
             saveButton.textContent =
                 "Saving...";
@@ -230,9 +255,9 @@ saveButton.addEventListener(
 
             const response = await fetch(
 
-                "https://quizverse-backend-si7g.onrender.com/api/user/update"
+                "https://quizverse-backend-si7g.onrender.com/api/user/update",
 
-                ,{
+                {
 
                     method: "PUT",
 
@@ -264,10 +289,13 @@ saveButton.addEventListener(
 
             if (!response.ok) {
 
-                message.style.color = "red";
+                message.style.color =
+                    "red";
+
 
                 message.textContent =
                     "❌ " + data.message;
+
 
                 return;
 
@@ -285,6 +313,7 @@ saveButton.addEventListener(
             message.style.color =
                 "green";
 
+
             message.textContent =
                 "✅ Profile updated successfully";
 
@@ -297,8 +326,10 @@ saveButton.addEventListener(
                 error
             );
 
+
             message.style.color =
                 "red";
+
 
             message.textContent =
                 "❌ Cannot connect to server";
@@ -309,6 +340,7 @@ saveButton.addEventListener(
 
             saveButton.disabled =
                 false;
+
 
             saveButton.textContent =
                 "Save Changes";
@@ -342,7 +374,9 @@ deleteButton.addEventListener(
 
         try {
 
-            deleteButton.disabled = true;
+            deleteButton.disabled =
+                true;
+
 
             deleteButton.textContent =
                 "Deleting...";
@@ -350,9 +384,9 @@ deleteButton.addEventListener(
 
             const response = await fetch(
 
-                "https://quizverse-backend-si7g.onrender.com/api/user/delete"
+                "https://quizverse-backend-si7g.onrender.com/api/user/delete",
 
-                ,{
+                {
 
                     method: "DELETE",
 
@@ -383,8 +417,10 @@ deleteButton.addEventListener(
                 message.style.color =
                     "red";
 
+
                 message.textContent =
                     "❌ " + data.message;
+
 
                 return;
 
@@ -413,8 +449,10 @@ deleteButton.addEventListener(
                 error
             );
 
+
             message.style.color =
                 "red";
+
 
             message.textContent =
                 "❌ Cannot connect to server";
@@ -425,6 +463,7 @@ deleteButton.addEventListener(
 
             deleteButton.disabled =
                 false;
+
 
             deleteButton.textContent =
                 "🗑️ Delete My Account";
