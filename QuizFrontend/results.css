@@ -674,3 +674,52 @@ body.dark-mode .correct {
 body.dark-mode .wrong {
     color: #ff8080;
 }
+/* ==========================================
+   FIX - RESULTS REVIEW CARDS DARK MODE
+========================================== */
+
+body.dark-mode #review-container > div {
+    background: #242424 !important;
+    color: #ffffff !important;
+
+    border-color: #6758f5 !important;
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.35) !important;
+}
+
+
+/* Question number */
+
+body.dark-mode #review-container > div h3 {
+    color: #ffffff !important;
+}
+
+
+/* Question text */
+
+body.dark-mode #review-container > div p {
+    color: #dddddd !important;
+}
+
+
+/* Your answer */
+
+body.dark-mode #review-container > div .correct {
+    color: #5ee7a0 !important;
+}
+
+
+/* Wrong answer */
+
+body.dark-mode #review-container > div .wrong {
+    color: #ff7777 !important;
+}
+
+
+/* In case Your Answer / Correct Answer
+   are not using correct/wrong classes */
+
+body.dark-mode #review-container > div strong {
+    color: #ffffff !important;
+}
