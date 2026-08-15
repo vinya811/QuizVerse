@@ -3,7 +3,10 @@
 // ==========================================
 
 
+// ==========================================
 // GET QUIZ INFORMATION
+// ==========================================
+
 const subject =
     localStorage.getItem("subject");
 
@@ -11,14 +14,20 @@ const level =
     localStorage.getItem("level");
 
 
+// ==========================================
 // GET SELECTED ANSWERS
+// ==========================================
+
 const savedAnswers =
     JSON.parse(
         localStorage.getItem("quizAnswers")
     ) || [];
 
 
+// ==========================================
 // FILTER QUESTIONS
+// ==========================================
+
 const selectedQuestions =
     questions.filter(function(question) {
 
@@ -59,7 +68,138 @@ const wrong =
     total - correct;
 
 const percentage =
-    Math.round((correct / total) * 100);
+    total > 0
+        ? Math.round((correct / total) * 100)
+        : 0;
+
+
+// ==========================================
+// UPDATE LEADERBOARD
+// ==========================================
+
+async function updateLeaderboard() {
+
+    const email =
+        localStorage.getItem("email");
+
+    const currentLevel =
+        localStorage.getItem("level");
+
+
+    // Check login
+
+    if (!email) {
+
+        console.log(
+            "No logged-in user found."
+        );
+
+        return;
+
+    }
+
+
+    // ==========================================
+    // PREVENT DUPLICATE SCORE SUBMISSION
+    // ==========================================
+
+    const scoreSubmitted =
+        sessionStorage.getItem(
+            "quizScoreSubmitted"
+        );
+
+    if (scoreSubmitted === "true") {
+
+        console.log(
+            "🏆 Score already submitted for this quiz."
+        );
+
+        return;
+
+    }
+
+
+    try {
+
+        const response = await fetch(
+            "https://quizverse-backend-si7g.onrender.com/api/user/leaderboard/update",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    email: email,
+
+                    correct: correct,
+
+                    level: currentLevel
+
+                })
+
+            }
+        );
+
+
+        const data =
+            await response.json();
+
+
+        // ==========================================
+        // BACKEND ERROR
+        // ==========================================
+
+        if (!response.ok) {
+
+            console.log(
+                "Leaderboard update failed:",
+                data.message
+            );
+
+            return;
+
+        }
+
+
+        // ==========================================
+        // SUCCESS
+        // ==========================================
+
+        console.log(
+            "🏆 Leaderboard updated:",
+            data
+        );
+
+
+        // Prevent submitting same quiz again
+
+        sessionStorage.setItem(
+            "quizScoreSubmitted",
+            "true"
+        );
+
+    }
+
+    catch (error) {
+
+        console.log(
+            "Leaderboard connection error:",
+            error
+        );
+
+    }
+
+}
+
+
+// ==========================================
+// UPDATE LEADERBOARD
+// ==========================================
+
+updateLeaderboard();
 
 
 // ==========================================
@@ -101,6 +241,7 @@ function reviewAnswers() {
         document.getElementById(
             "review-container"
         );
+
 
     reviewContainer.innerHTML = "";
 
@@ -199,7 +340,10 @@ function reviewAnswers() {
 }
 
 
-// Run review
+// ==========================================
+// RUN REVIEW
+// ==========================================
+
 reviewAnswers();
 
 
@@ -211,21 +355,58 @@ const restartButton =
     document.getElementById("restart-btn");
 
 
-restartButton.addEventListener(
-    "click",
-    function() {
+if (restartButton) {
 
-        // Remove previous answers
+    restartButton.addEventListener(
+        "click",
+        function() {
 
-        localStorage.removeItem(
-            "quizAnswers"
-        );
+            // Remove previous answers
+
+            localStorage.removeItem(
+                "quizAnswers"
+            );
 
 
-        // Start quiz again
+            // Allow next quiz to submit
+            // a new leaderboard score
 
-        window.location.href =
-            "quiz.html";
+            sessionStorage.removeItem(
+                "quizScoreSubmitted"
+            );
 
-    }
-);
+
+            // Start quiz again
+
+            window.location.href =
+                "quiz.html";
+
+        }
+    );
+
+}
+
+
+// ==========================================
+// LEADERBOARD BUTTON
+// ==========================================
+
+const leaderboardButton =
+    document.getElementById(
+        "leaderboard-btn"
+    );
+
+
+if (leaderboardButton) {
+
+    leaderboardButton.addEventListener(
+        "click",
+        function() {
+
+            window.location.href =
+                "leaderboard.html";
+
+        }
+    );
+
+}

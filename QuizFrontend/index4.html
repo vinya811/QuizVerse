@@ -15,67 +15,118 @@
 
 <body>
 
-    <!-- HEADER -->
 
     <header>
 
         <div class="logo">
+
             🧩 QuizVerse
+
         </div>
 
         <div class="profile" id="profile">
 
-            👤 <span id="username">User</span>
+    👤
 
-            <div class="profile-menu" id="profile-menu">
+    <span id="username">
 
-                <button id="settings-btn">
-                    ⚙ Settings
-                </button>
+        User
 
-                <button id="logout-btn">
-                    🚪 Logout
-                </button>
+    </span>
 
-            </div>
 
-        </div>
+    <div class="profile-menu" id="profile-menu">
+
+        <button id="settings-btn">
+
+            ⚙ Settings
+
+        </button>
+
+
+        <button id="logout-btn">
+
+            🚪 Logout
+
+        </button>
+
+    </div>
+
+</div>
+        
 
     </header>
 
 
-    <!-- MAIN CONTENT -->
-
     <main>
 
-        <!-- HERO -->
 
         <section class="hero">
 
             <h1>
-                Welcome to QuizVerse! 🎯
+
+                Play Smart.<br>
+
+                Get Smarter. 🎯
+
             </h1>
 
+
             <p>
-                Test your knowledge, challenge yourself,
-                and become smarter every day.
+
+                Challenge yourself and boost your knowledge every day.
+
             </p>
 
         </section>
 
+        <!-- LEADERBOARD -->
 
-        <!-- QUIZ SECTION -->
+<section class="leaderboard-section">
+
+    <div class="leaderboard-card">
+
+        <div class="leaderboard-icon">
+            🏆
+        </div>
+
+        <div class="leaderboard-content">
+
+            <h2>
+                QuizVerse Leaderboard
+            </h2>
+
+            <p>
+                See who's leading the quiz challenge!
+            </p>
+
+        </div>
+
+        <button id="leaderboard-btn">
+            View Leaderboard →
+        </button>
+
+    </div>
+
+</section>
+
 
         <section class="quiz-section">
+
 
             <div class="section-heading">
 
                 <h2>
-                    Choose Your Quiz
+
+                    Available Quizzes
+
                 </h2>
 
+
                 <span id="quiz-count">
+
                     0 Quizzes
+
                 </span>
 
             </div>
@@ -83,52 +134,11 @@
 
             <div id="quiz-list">
 
-                <!-- JAVASCRIPT QUIZ -->
-
-                <div class="quiz-card">
-
-                    <h3>
-                        💻 JavaScript
-                    </h3>
-
-                    <p>
-                        Test your JavaScript knowledge
-                        from basics to advanced concepts.
-                    </p>
-
-                    <button
-                        onclick="startQuiz('javascript')"
-                    >
-                        Start Quiz →
-                    </button>
-
-                </div>
-
-
-                <!-- GENERAL KNOWLEDGE -->
-
-                <div class="quiz-card">
-
-                    <h3>
-                        🌍 General Knowledge
-                    </h3>
-
-                    <p>
-                        Challenge yourself with
-                        interesting GK questions.
-                    </p>
-
-                    <button
-                        onclick="startQuiz('gk')"
-                    >
-                        Start Quiz →
-                    </button>
-
-                </div>
-
             </div>
 
+
         </section>
+
 
     </main>
 

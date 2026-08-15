@@ -6,22 +6,32 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+
     username: {
         type: String,
         required: true
     },
+
     password: {
         type: String,
         required: true
     },
+
     phone: {
         type: String,
         required: true
     },
+
     dob: {
         type: String,
         required: true
+    },
+
+    leaderboardPoints: {
+        type: Number,
+        default: 0
     }
+
 }, {
     timestamps: true
 });
